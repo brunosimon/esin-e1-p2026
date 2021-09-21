@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 02 - HTML</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div id="pagination"></div>
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 02</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="http://bruno-simon.com/esin/e1-p2026/">http://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>HTML</h1>
+                </section>
+
+                <section>
+                    <h2>Les balises</h2>
+                </section>
+                
+                <section>
+                    <p>HTML est un language balisé (comme le XML)</p>
+                    <p>Il existe un très grand nombre de balises HTML</p>
+                    <p>Une balise peut s'ouvrir et se fermer comme cela</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;exemple&gt; &lt;/exemple&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Certaines sont auto-fermante (notez la position du <span class="hl">/</span>)</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;exemple /&gt;
+                        </code></pre>
+                    </div>
+                    <p>L'espace avant le <span class="hl">/</span> est optionnel</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;exemple/&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Certaines sont auto-fermante sans avoir de <span class="hl">/</span> de fermeture</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;exemple&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Elles peuvent contenir du texte ou même d'autres balises</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;exemple&gt;Salut&lt;/exemple&gt;
+
+&lt;exemple&gt;
+    &lt;exemple /&gt;
+&lt;/exemple&gt;
+                        </code></pre>
+                    </div>
+                    <ul>
+                        <li>Les retours à la ligne n'ont pas d'importance</li>
+                        <li>Plusieurs espaces en valent un seul</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Elles peuvent contenir des attributs qui auront une fonction particulière selon la balise</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;exemple attribut=&quot;valeur&quot;&gt; &lt;/exemple&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>Dans un dossier, créez un fichier page-1.html</li>
+                        <li>Ouvrez-le dans VSCode</li>
+                        <li>Copiez le code de la slide suivante dedans</li>
+                        <li>Sauvegardez</li>
+                        <li>Ouvrez-le dans Chrome</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Titre de la page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        Hello World
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                    </div>
+                    <p>Code minimum pour une page HTML</p>
+                </section>
+
+                <section>
+                    <p>Celles-ci doivent toujours être présentes</p>
+                    <ul>
+                        <li><span class="hl">&lt;!doctype html&gt;</span> indique qu'il s'agit d'une page HTML</li>
+                        <li><span class="hl">&lt;html&gt;&lt;/html&gt;</span> englobe toute votre page</li>
+                        <li><span class="hl">&lt;head&gt;&lt;/head&gt;</span> correspond à l'entête de votre page et contiendra diverses informations invisibles</li>
+                        <li><span class="hl">&lt;body&gt;&lt;/body&gt;</span> correspond au corps de votre page, la partie visible</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <ul>
+                        <li><span class="hl">&lt;meta charset=&quot;UTF-8&quot;&gt;</span> indique l'encodage de la page</li>
+                        <li><span class="hl">&lt;title&gt;&lt;/title&gt;</span> correspond au titre <img src="src/img/image-1.png" alt=""></li>
+                    </ul>
+                </section>
+
+                <!-- Indentation -->
+                <section>
+                    <h3>Indentation</h3>
+                    <p>On parle d'indentation le fait d'ajouter des espaces en début de ligne afin d'améliorer la lisibilité</p>
+                    <p>Dans la majorité des langages, l'indentation n'a pas d'impact sur la logique du code</p>
+                    <p>On peut indenter avec <span class="u">2 espaces</span>, <span class="u">4 espaces</span> ou <span class="u">une tabulation</span></p>
+                </section>
+
+                <section>
+                    <h3>Indentation</h3>
+                    <p>En HTML, la convention veut qu'on indente tout ce qui se trouve entre l'ouverture et la fermeture d'une balise</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Titre de la page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        Hello World
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <!-- IMAGES -->
+                <section>
+                    <h3>Images</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;img src="https://bruno-simon.com/esin/e1-p2026/resources/image-1.jpg"&gt;
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;img src="image-1.jpg"&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Images</h3>
+                    <p>La balise <span class="hl">img</span> supporte plusieurs attributs</p>
+                    <ul>
+                        <li><span class="hl">src</span> : Chemin vers l'image (relatif dans le dossier ou absolu depuis un autre site)</li>
+                        <li><span class="hl">alt</span> : Contenu alternatif si l'image n'a pas été chargée</li>
+                        <li><span class="hl">width</span> : largeur de l'image</li>
+                        <li><span class="hl">height</span> : hauteur de l'image</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Images</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;img src="https://bruno-simon.com/esin/e1-p2026/resources/image-1.jpg" alt="Titre de l'image" width="600" height="400"&gt;
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;img
+    src="https://bruno-simon.com/esin/e1-p2026/resources/image-1.jpg"
+    alt="Titre de l'image"
+    width="600"
+    height="400"
+&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <!-- TITLES -->
+                <section>
+                    <h3>Titres</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;h1&gt;Titre principal&lt;/h1&gt;
+&lt;h2&gt;Titre secondaire&lt;/h2&gt;
+&lt;h3&gt;Titre tertiaire&lt;/h3&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Titres</h3>
+                    <p>Les titres n'ont pas d'attribut particulier</p>
+                    <p>Le titre le plus important doit se trouver dans un <span class="hl">h1</span>. Il faut éviter d'avoir plusieurs <span class="hl">h1</span> dans une même page</p>
+                    <p><span class="hl">h1</span> > <span class="hl">h2</span> > <span class="hl">h3</span> > <span class="hl">h4</span> > ...</p>
+                    <p>Les moteurs de recherche s'en servent pour comprendre le contenu</p>
+                </section>
+
+                <!-- BR -->
+                <section>
+                    <h3>Retour à la ligne</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+Mon text
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+La suite
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Retour à la ligne</h3>
+                    <p>Aller à la ligne en HTML n'aura pas pour effet d'aller à la ligne sur la page</p>
+                    <p>Pour cela, il faut utiliser la balise <span class="hl">&lt;br&gt;</span> pouvant aussi s'écrire <span class="hl">&lt;br /&gt;</span></p>
+                </section>
+
+                <!-- LIST -->
+                <section>
+                    <h3>Listes</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+Liste de courses
+&lt;ul&gt;
+    &lt;li&gt;Tomates&lt;/li&gt;
+    &lt;li&gt;Fromage&lt;/li&gt;
+    &lt;li&gt;Jambon&lt;/li&gt;
+&lt;/ul&gt;
+
+Ordre de passage
+&lt;ol&gt;
+    &lt;li&gt;François&lt;/li&gt;
+    &lt;li&gt;Jacques&lt;/li&gt;
+    &lt;li&gt;Nicolas&lt;/li&gt;
+&lt;/ol&gt;
+
+Chapitres
+&lt;ol type="I"&gt;
+    &lt;li&gt;Premier Chapitre&lt;/li&gt;
+    &lt;li&gt;Deuxième Chapitre&lt;/li&gt;
+    &lt;li&gt;Troisième Chapitre&lt;/li&gt;
+&lt;/ol&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Listes</h3>
+                    <p>Une liste doit se trouver entre les balises <span class="hl">ul</span> ou <span class="hl">ol</span> et chaque item de la liste doit se trouver entre les balises <span class="hl">li</span></p>
+                    <p><span class="hl">ol</span> permet d'avoir des numéros à la place des puces</p>
+                </section>
+
+                <section>
+                    <h3>Listes</h3>
+                    <p>La balise <span class="hl">ol</span> supporte l'attribut <span class="hl">type</span> pouvant avoir comme valeur</p>
+                    <ul>
+                        <li><span class="hl">1</span> : 1, 2, 3, 4</li>
+                        <li><span class="hl">a</span> : a, b, c, d</li>
+                        <li><span class="hl">A</span> : A, B, C, D</li>
+                        <li><span class="hl">i</span> : i, ii, iii, iv</li>
+                        <li><span class="hl">I</span> : I, II, III, IV</li>
+                    </ul>
+                </section>
+
+                <!-- PARAGRAPHS -->
+                <section>
+                    <h3>Paragraphes</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;p&gt;Ceci est un paragraphe&lt;/p&gt;
+&lt;p&gt;Ceci est un autre paragraphe&lt;/p&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Paragraphes</h3>
+                    <p>Les paragraphes servent simplement à délimiter des blocks de texte et à créer une marge en dessous</p>
+                </section>
+
+                <!-- TEXTS -->
+                <section>
+                    <h3>Balises de texte</h3>
+                    <p>Il existe de nombreuses balises de texte</p>
+                    <table class="visible">
+                        <tr>
+                            <td>&lt;strong&gt;</td>
+                            <td>Texte important</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;em&gt;</td>
+                            <td>Texte d'<a href="https://fr.wiktionary.org/wiki/emphase" target="_blank">emphase</a></td>
+                        </tr>
+                        <tr>
+                            <td>&lt;small&gt;</td>
+                            <td>Texte peu important</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;del&gt;</td>
+                            <td>Texte supprimé</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;sub&gt;</td>
+                            <td>Sous texte</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;sup&gt;</td>
+                            <td>Sur texte</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!-- LINKS -->
+                <section>
+                    <h3>Liens</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;a href="page-2.html"&gt;Accéder à la page 2&lt;/a&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Liens</h3>
+                    <p>Les liens permettent de diriger l'utilisateur vers une autre page</p>
+                    <p>Ce peut être une autre page du même site ou une page sur un autre site</p>
+                </section>
+
+                <section>
+                    <h3>Liens</h3>
+                    <p>La balise <span class="hl">a</span> supporte plusieurs attributs</p>
+                    <ul>
+                        <li><span class="hl">href</span> : Chemin vers l'image (relatif ou absolu)</li>
+                        <li><span class="hl">title</span> : Titre associé au lien (apparait en laissant le curseur sur le lien)</li>
+                        <li><span class="hl">target</span> : Comment ouvrir la page ( _blank = nouveau onglet, _self = même onglet)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Liens</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;a href="page-2.html" title="Page 2" target="_blank"&gt;Accéder à la page 2&lt;/a&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <!-- VIDEO -->
+                <section>
+                    <h3>Vidéo</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;video src="https://bruno-simon.com/esin/e1-p2026/resources/video.mp4"&gt;&lt;/video&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Vidéo</h3>
+                    <p>La balise <span class="hl">video</span> permet d'ajouter une vidéo dans la page sans utiliser Flash</p>
+                </section>
+
+                <section>
+                    <h3>Vidéo</h3>
+                    <p>Elle accepte plusieurs attributs</p>
+                    <ul>
+                        <li><span class="hl">src</span> : Chemin vers le fichier vidéo (relatif ou absolu)</li>
+                        <li><span class="hl">autoplay</span> : Joue la vidéo dès que possible</li>
+                        <li><span class="hl">loop</span> : Boucle</li>
+                        <li><span class="hl">controls</span> : Affiche les contrôles de la vidéo</li>
+                        <li><span class="hl">poster</span> : Affiche une image par défaut</li>
+                        <li><span class="hl">width</span> : Largeur</li>
+                        <li><span class="hl">height</span> : Hauteur</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Vidéo</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;video src="http://bruno-simon.com/video.mp4" autoplay loop controls poster="mon-image.jpg" width="600" height="400"&gt;&lt;/video&gt;
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;video
+    src="http://bruno-simon.com/video.mp4"
+    autoplay
+    loop
+    controls
+    poster="mon-image.jpg"
+    width="600"
+    height="400"
+&gt;&lt;/video&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <!-- AUDIO -->
+                <section>
+                    <h3>Audio</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;audio src="https://bruno-simon.com/esin/e1-p2026/resources/audio.mp3"&gt;&lt;/audio&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Audio</h3>
+                    <p>La balise <span class="hl">audio</span> permet d'ajouter un son dans la page sans utiliser Flash</p>
+                </section>
+
+                <section>
+                    <h3>Audio</h3>
+                    <p>Elle accepte plusieurs attributs</p>
+                    <ul>
+                        <li><span class="hl">src</span> : Chemin vers le fichier audio (relatif ou absolu)</li>
+                        <li><span class="hl">autoplay</span> : Joue l'audio dès que possible</li>
+                        <li><span class="hl">loop</span> : Boucle</li>
+                        <li><span class="hl">controls</span> : Affiche les contrôles de l'audio</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Audio</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;audio src="http://bruno-simon.com/audio.mp3" autoplay loop controls&gt;&lt;/audio&gt;
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;audio
+    src="http://bruno-simon.com/audio.mp3"
+    autoplay
+    loop
+    controls
+&gt;&lt;/audio&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <!-- TABLE -->
+                <section>
+                    <h3>Tableaux</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Nom&lt;/th&gt;
+        &lt;th&gt;Prénom&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;François&lt;/td&gt;
+        &lt;td&gt;Mitterrand&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Jacques&lt;/td&gt;
+        &lt;td&gt;Chirac&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Nicolas&lt;/td&gt;
+        &lt;td&gt;Sarkozy&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Tableaux</h3>
+                    <p>Un tableau est créé avec la balise <span class="hl">table</span></p>
+                    <p>Une ligne du tableau est créée avec la balise <span class="hl">tr</span></p>
+                    <p>Une colonne du tableau est créée avec la balise <span class="hl">td</span></p>
+                    <p>Cette colonne peut-être une entête avec la balise <span class="hl">th</span></p>
+                </section>
+
+                <section>
+                    <h3>Tableaux</h3>
+                    <p><span class="hl">Table</span> accepte plusieurs attributs</p>
+                    <ul>
+                        <li><span class="hl">align</span> : Alignement du tableau</li>
+                        <li><span class="hl">bgcolor</span> : Couleur de fond</li>
+                        <li><span class="hl">border</span> : Bordure</li>
+                        <li><span class="hl">cellspacing</span> : Espace entre les cellules</li>
+                        <li><span class="hl">cellpadding</span> : Espace à l'intérieur des cellules</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Tableaux</h3>
+                    <p><span class="hl">tr</span> accepte plusieurs attributs</p>
+                    <ul>
+                        <li><span class="hl">align</span> : Alignement horizontal du contenu</li>
+                        <li><span class="hl">valign</span> : Alignement vertical du contenu</li>
+                        <li><span class="hl">bgcolor</span> : Couleur de fond</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Tableaux</h3>
+                    <p><span class="hl">td</span> et <span class="hl">th</span> acceptent plusieurs attributs</p>
+                    <ul>
+                        <li><span class="hl">align</span> : Alignement horizontal du contenu</li>
+                        <li><span class="hl">valign</span> : Alignement vertical du contenu</li>
+                        <li><span class="hl">bgcolor</span> : Couleur de fond</li>
+                        <li><span class="hl">width</span> : Largeur de la cellule</li>
+                        <li><span class="hl">height</span> : Hauteur de la cellule</li>
+                        <li><span class="hl">rowspan</span> : Combien de lignes doit faire la cellule</li>
+                        <li><span class="hl">colspan</span> : Combien de colonnes doit faire la cellule</li>
+                    </ul>
+                </section>
+
+                <!-- FORM -->
+                <section>
+                    <h3>Formulaires</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;form action="mon-script.php" method="GET"&gt;
+    &lt;input type="text"&gt;
+&lt;/form&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Formulaires</h3>
+                    <p>Un formulaire est créé avec la balise <span class="hl">form</span></p>
+                    <p>La majorité des champs sont créés avec la balise <span class="hl">input</span> (sauf quelques exceptions) à l'intérieur du form</p>
+                </section>
+
+                <section>
+                    <h3>Formulaire</h3>
+                    <p><span class="hl">Form</span> accepte plusieurs attributs</p>
+                    <ul>
+                        <li><span class="hl">action</span> : Vers quelle page emmener l'utilisateur quand il valide le formulaire</li>
+                        <li><span class="hl">method</span> : Méthode d'envoi des données</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Formulaires</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;form action="mon-script.php" method="GET"&gt;
+    &lt;label for="first-name"&gt;Nom&lt;/label&gt;
+    &lt;input id="first-name" type="text"&gt;
+&lt;/form&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Formulaires</h3>
+                    <p>La balise <span class="hl">label</span> permet d'associer un texte avec un champ</p>
+                    <p>Ici, on associe le texte "Nom" avec le champ de texte</p>
+                    <p>Pour qu'un label soit associé à un champ, on utilise la même valeure dans l'attribut <span class="hl">for</span> du label et dans l'attribut <span class="hl">id</span> du champ</p>
+                    <p>Lorsque le visiteur va cliquer sur le label, ça aura le même effet que s'il avait cliqué sur le champ</p>
+                </section>
+
+                <section>
+                    <h3>Formulaires</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;form action="mon-script.php" method="GET"&gt;
+    &lt;input type="text" name="text" value="Mon text"&gt;
+
+    &lt;br&gt;
+    &lt;input type="password" name="password" value="password"&gt;
+
+    &lt;br&gt;
+    &lt;input type="search" name="search" value="search"&gt;
+
+    &lt;br&gt;
+    &lt;input type="color" name="color" value="#ff0000"&gt;
+
+    &lt;br&gt;
+    &lt;input type="date" name="date" value="1990-01-17"&gt;
+
+    &lt;br&gt;
+    &lt;input type="month" name="month" value="2014-03"&gt;
+
+    &lt;br&gt;
+    &lt;input type="week" name="week" value="2014-W12"&gt;
+
+    &lt;br&gt;
+    &lt;input type="time" name="time" value="10:25"&gt;
+
+    &lt;br&gt;
+    &lt;input type="email" name="email" value="toto@tata.com"&gt;
+
+    &lt;br&gt;
+    &lt;input type="tel" name="tel" value="+33631446033"&gt;
+
+    &lt;br&gt;
+    &lt;input type="url" name="url" value="http://google.com"&gt;
+
+    &lt;br&gt;
+    &lt;input type="number" name="number" value="1337"&gt;
+
+    &lt;br&gt;
+    &lt;input type="checkbox" name="checkbox" value="1"&gt;
+
+    &lt;br&gt;
+    &lt;input type="radio" name="radio" value="value"&gt;
+
+    &lt;br&gt;
+    &lt;input type="range" name="range" value="60" max="100" max="20"&gt;
+
+    &lt;br&gt;
+    &lt;input type="file" name="file"&gt;
+
+    &lt;br&gt;
+    &lt;select name="select" multiple&gt;
+        &lt;option value="1"&gt;Toto&lt;/option&gt;
+        &lt;option value="2"&gt;Tata&lt;/option&gt;
+        &lt;option value="3"&gt;Tutu&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;br&gt;
+    &lt;textarea name="textarea" cols="30" rows="10"&gt;Mon text&lt;/textarea&gt;
+
+    &lt;br&gt;
+    &lt;input type="hidden" name="hidden" value="value"&gt;
+
+    &lt;br&gt;
+    &lt;input type="reset" name="reset" value="reset"&gt;
+
+    &lt;br&gt;
+    &lt;input type="submit" name="submit" value="submit"&gt;
+&lt;/form&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Formulaires</h3>
+                    <p>Certains de ces champs ne fonctionnent pas sur tous les navigateurs</p>
+                    <p>On peut se référer au site <a href="http://caniuse.com/" target="_blank">caniuse.com</a></p>
+                </section>
+
+                <section>
+                    <h3>Formulaires</h3>
+                    <p>Les données envoyées par le formulaire ne peuvent être traitées que par des script développés avec des languages "back" comme PHP, Node.js ou Python</p>
+                </section>
+
+                <!-- DIV -->
+                <section>
+                    <h3>div / span</h3>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;div&gt;
+    Du &lt;span&gt;contenu&lt;/span&gt;
+&lt;/div&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>div / span</h3>
+                    <p>Ce code ne semble avoir aucun effet</p>
+                    <p>Les balises <span class="hl">div</span> et <span class="hl">span</span> sont neutre par défaut</p>
+                    <p>Elle n'ont aucun style</p>
+                    <p>Nous les utiliserons dans le seul but de leur donner du style et regrouper des éléments</p>
+                </section>
+
+                <!-- INLINE / BLOCK -->
+                <section>
+                    <h3>inline / block</h3>
+                    <p>Toutes les balises que nous venons de voir peuvent être séparées en deux catégories : <span class="hl">Inline</span> et <span class="hl">Block</span></p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;span&gt;Inline&lt;/span&gt;
+&lt;span&gt;Inline&lt;/span&gt;
+&lt;span&gt;Inline&lt;/span&gt;
+
+&lt;p&gt;block&lt;/p&gt;
+&lt;p&gt;block&lt;/p&gt;
+&lt;p&gt;block&lt;/p&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>inline / block</h3>
+                    <p>Notez comment se positionnent les mots "inline" et "block"</p>
+                    <p>Les inlines restent sur la même ligne</p>
+                    <p>Les blocks prennent toute la largeur possible</p>
+                </section>
+
+                <!-- COMMENTS -->
+                <section>
+                    <h3>Commentaires</h3>
+                    <p>On peut ajouter des commentaires</p>
+                    <p>Ceux-ci ne seront pas interpretés par le navigateur</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;!-- Ceci est un commentaire --&gt;
+                        </code></pre>
+                    </div>
+                    <p>Les commentaires aident à s'y retrouver dans le code</p>
+                </section>
+
+                <!-- Semantic -->
+                <section>
+                    <h3>Balises sémantiques</h3>
+                    <p>Les balises sémantiques sont des balises qui ont pour vocation d'aider un parseur à comprend le contenu.</p>
+                    <p>Un parseur (ou crawler) est par exemple un moteur de recherche venu indéxer la page.</p>
+                </section>
+
+                <section>
+                    <h3>Balises sémantiques</h3>
+                    <p>Nous utilisons déjà des balises sémantiques</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;h1&gt;Le titre de ma page&lt;/h1&gt;
+&lt;h2&gt;Le sous-titre&lt;/h2&gt;
+&lt;p&gt;Un petite introduction&lt;/p&gt;
+                        </code></pre>
+                    </div>
+                    <p>Mais il en existe plein d'autres</p>
+                </section>
+
+                <section>
+                    <h3>Balises sémantiques</h3>
+                    <p>⚠️ Une balise sémantique ne doit pas être utilisée pour son style</p>
+                </section>
+
+                <section>
+                    <h3>Balises sémantiques</h3>
+                    <table class="visible">
+                        <tr>
+                            <td>&lt;section&gt;</td>
+                            <td>Une section de la page</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;article&gt;</td>
+                            <td>Un article au sens large</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;header&gt;</td>
+                            <td>Une entête</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;footer&gt;</td>
+                            <td>Une pied de page</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;nav&gt;</td>
+                            <td>Une navigation</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;aside&gt;</td>
+                            <td>Un contenu complémentaire</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!-- ALL -->
+                <section>
+                    <p>Liste des balises : <a href="http://www.w3schools.com/tags/default.asp" target="_blank">www.w3schools.com/tags/default.asp</a></p>
+                </section>
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>

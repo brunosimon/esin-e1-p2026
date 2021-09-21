@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 04 - Intégration</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div id="pagination"></div>
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 04</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="http://bruno-simon.com/esin/e1-p2026/">http://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Intégration</h1>
+                </section>
+
+                <section>
+                    <p>Une seule page HTML / CSS</p>
+                    <p>Pas de JS ni de développement back</p>
+                </section>
+
+                <section>
+                    <h2>Maquettes</h2>
+                </section>
+
+                <section>
+                    <p>En situation réelle, le format des maquette dépend du logiciel utilisé (Sketch, Photoshop, Figma)</p>
+                    <p>Dans le cadre de l'exercice et dans un souci de compatibilité, vous allez travailler avec une image et un psd</p>
+                    <p>4 images vous sont aussi fournies dans le dossier <span class="u">images/</span></p>
+                    <p><a target="_blank" href="maquettes.zip">Télécharger les maquettes</a></p>
+                </section>
+
+                <section>
+                    <h2>Organisation</h2>
+                </section>
+
+                <section>
+                    <p>Il est important d'organiser les fichiers dès le début</p>
+                    <p>Créez un dossier et appelez le du nom du projet <span class="hl">integration-1</span></p>
+                    <p>Créez les dossiers et fichiers comme tel</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+├── index.html
+└── sources
+    └── images
+        └── ...
+    └── css
+        └── style.css
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Nous avons nommé la page d'accueil <span class="u">index.html</span> pas seulement par convention</p>
+                    <p>Lorsqu'on accède à un site, si aucun fichier n'est spécifié, le serveur va automatiquement tenter de charger le fichier <span class="u">index.html</span></p>
+                    <p><span class="hl">https://monsite.com</span> => <span class="hl">https://monsite.com/index.html</span></p>
+                </section>
+
+                <section>
+                    <p>Ouvrez les fichiers <span class="hl">index.html</span> et <span class="hl">style.css</span> dans votre éditeur</p>
+                    <p>Ajoutez ce code de base dans <span class="hl">index.html</span></p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Intégration 1&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Il existe deux façons d'intégrer une page HTML/CSS</p>
+                    <ul>
+                        <li>
+                            Écrire tout le HTML en une fois puis s'occuper du CSS
+                            <br />(plus efficace, nécessite de savoir à quoi va ressembler le CSS)
+                        </li>
+                        <li>
+                            Écrire le HTML en parallèle du CSS
+                            <br />(moins efficace, plus pratique quand on débute)
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>HTML</h2>
+                </section>
+
+                <section>
+                    <p>Pour garder un HTML propre</p>
+                    <ul>
+                        <li>Bien indenter</li>
+                        <li>Commenter les grandes parties</li>
+                        <li>Bien nommer les classes</li>
+                        <li>Aérer</li>
+                        <li>Pensez au référencement</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>CSS</h2>
+                </section>
+
+                <section>
+                    <p>Pour garder un CSS propre</p>
+                    <ul>
+                        <li>Bien séparer les différentes parties de la page</li>
+                        <li>Commenter</li>
+                        <li>Identifier des propriétés CSS qui s'appliquent sur toute la page</li>
+                        <li>Ne pas laisser trainer de code dont on ne connait pas l'utilité</li>
+                        <li>Choisir entre du CSS <span class="hl">inline</span> et <span class="hl">block</span></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Exemple de CSS inline</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+/* Global */
+body { font-family: Helvetica,Arial; color: #cccccc; font-size: 14px; }
+a { text-decoration: underline; color: #ff7800; }
+
+/* Header */
+header { height: 100px; padding-top:40px; text-align:center; background: #e7e8ed; }
+header h1 { font-size: 22px; font-weight: bold; }
+
+/* Description */
+.description { padding: 100px; text-align: justify; }
+.description p { font-style: italic; }
+.description p.intro { font-weight: bold; color: #000000; }
+                        </code></pre>
+                    </div>
+                    <p>Les sélecteurs sont faciles à comparer et le code est déjà compressé, mais il faut scroller horizontalement et il est difficile de s'y retrouver dans les propriétés</p>
+                </section>
+
+                <section>
+                    <p>Exemple de CSS block</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+/* Global */
+body
+{
+    font-family: Helvetica,Arial;
+    color: #cccccc;
+    font-size: 14px;
+}
+a
+{
+    text-decoration: underline;
+    color: #ff7800;
+}
+
+/* Header */
+header
+{
+    height: 100px;
+    padding-top: 40px;
+    text-align: center;
+    background: #e7e8ed;
+}
+header h1
+{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Description */
+.description
+{
+    padding: 100px;
+    text-align: justify;
+}
+.description p
+{
+    font-style: italic;
+}
+.description p.intro
+{
+    font-weight: bold;
+    color: #000000;
+}
+                        </code></pre>
+                    </div>
+                    <p>Beaucoup plus lisible, mais il faut beaucoup scroller et on peut difficilement comparer les sélecteurs</p>
+                </section>
+
+                <section>
+                    <h2>ASTUCES</h2>
+                    <p>Pour qu'une image de fond prenne toute la largeur et la hauteur sans perdre son homothétie</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element
+{
+    background: url(../img/image.jpg);
+    background-size: cover;
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>ASTUCES</h2>
+                    <p>Pour centrer un élément de type block horizontalement</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element
+{
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+                        </code></pre>
+                    </div>
+                    <p>Pareil que</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element
+{
+    margin: 0 auto 0 auto;
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>ASTUCES</h2>
+                    <p>Pour centrer un élément au milieu d'un container</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.container
+{
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.container .element
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin: -50px 0 0 -50px;
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>ASTUCES</h2>
+                    <p>Pour qu'un élément prennent 1/3 à gauche et un autre élément prenne 2/3 à droite</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.container
+{
+    width: 100%;
+    height: 500px;
+}
+
+.container .left
+{
+    width: 33%;
+    height: 100%;
+    float: left;
+}
+
+.container .right
+{
+    width: 67%;
+    height: 100%;
+    float: right;
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>ASTUCES</h2>
+                    <p>N'oubliez pas de tester votre site régulièrement sur les différents navigateurs</p>
+                    <p>Afin de savoir quels navigateurs tester, basez-vous sur les statistiques de visites de votre site (si déjà existant) ou sur <a target="_blank" href="http://gs.statcounter.com/#browser-FR-monthly-201312-201412">des statistiques générales</a></p>
+                </section>
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>

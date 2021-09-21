@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 23 - Mise en ligne</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css"> -->
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div id="pagination"></div>
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 23</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="http://bruno-simon.com/esin/e1-p2026/">http://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Mettre son site en ligne</h2>
+                </section>
+
+                <section>
+                    <p>Nous avons réalisé un petit site, il est temps de le mettre en ligne</p>
+                </section>
+
+                <section>
+                    <h2>Hébergement</h2>
+                    <p>Comment ça fonctionne ?</p>
+                </section>
+
+                <section>
+                    <p>Pour que notre site soit accessible dans le monde entier, il va falloir le stoquer chez un hébergeur</p>
+                    <p>Nous allons mettre les fichiers HTML/CSS/JS/etc. sur un ordinateur relié à Internet</p>
+                    <p>Lorsqu'un visiteur va taper l'URL du site, la requête va suivre un chemin défini par les DNS pour aboutir sur l'ordinateur qui stock no fichier</p>
+                    <p>Ces fichiers seront ensuite envoyés à l'utilisateur</p>
+                </section>
+
+                <section>
+                    <p>Il existe énormément de solutions d'hébergement avec de nombreux critères</p>
+                </section>
+
+                <section>
+                    <h2>Hébergements "classiques"</h2>
+                </section>
+
+                <section>
+                    <h3>Mutualisé</h3>
+                    <ul>
+                        <li>Faibles coûts (quelques dizaines d'€ par an)</li>
+                        <li>Partagé avec d'autres clients (inconnus)</li>
+                        <li>Performance limitée (une dizaine de visiteurs simultanés)</li>
+                        <li>Fonctionnalités limitées</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Dédié</h3>
+                    <ul>
+                        <li>Coûts élevés (quelques centaines/milliers d'€ par an)</li>
+                        <li>Un serveur par client</li>
+                        <li>Très bonnes performances (plusieurs centaines de visiteurs simultanés)</li>
+                        <li>Fonctionnalités libres</li>
+                        <li>Difficile à gérer</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Hybride / Virtuel</h3>
+                    <ul>
+                        <li>Moins coûteux</li>
+                        <li>Presque tous les avantages et inconvénients d'un dédié</li>
+                        <li>Un peu moins performant</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Et le Cloud?</p>
+                </section>
+
+                <section>
+                    <h3>Cloud</h3>
+                    <p>Le cloud est devenu un terme marketing pouvant correspondre à tout et n'importe quoi</p>
+                    <p>L'idée principale est la "scalabilité"</p>
+                    <p>L'espace stockage et la force de calcul peuvent être adaptés au besoin</p>
+                </section>
+
+                <section>
+                    <p>Pour un site <span class="u">simple</span>, un hébergement mutualisé fait largement l'affaire</p>
+                    <p>Ce choix n'est pas définitif, il sera toujours possible de migrer vers une autre offre en temps voulu</p>
+                </section>
+
+                <section>
+                    <p>Souscrire à un hébergement mutualisé ne prend que quelques minutes et quelques euros</p>
+                </section>
+
+                <section>
+                    <ul>
+                        <li><a href="https://www.o2switch.fr/hebergement-illimite/" target="_blank">O2Switch</a></li>
+                        <li><a href="https://www.planethoster.com/fr/Hebergements-World" target="_blank">PlanetHoster</a></li>
+                        <li><a href="https://www.ovh.com/fr/hebergement-web/" target="_blank">OVH</a></li>
+                        <li><a href="http://www.1and1.fr/hebergement-linux" target="_blank">1&1</a></li>
+                        <li><a href="https://fr.godaddy.com/hebergement-web/hebergement-web" target="_blank">GoDaddy</a></li>
+                        <li><a href="https://www.gandi.net/hebergement/simple?language=php&db=mysql" target="_blank">Gandi</a></li>
+                        <li>...</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>FTP</h2>
+                </section>
+
+                <section>
+                    <p>Pour envoyer les fichiers sur un hébergement classique, on utilise en général un protocol FTP</p>
+                    <p>(File Transfer Protocol)</p>
+                </section>
+
+                <section>
+                    <h3>Configuration</h3>
+                    <p>Dans le cadre du cours, un domaine/sous domaine a été créé : <span class="hl">esin-p2026.bruno-simon.com</span></p>
+                    <p>Ce domaine pointe dans un dossier particulier de mon hébergement</p>
+                    <p>Des accès FTP ont aussi été créés et nous les verrons plus tard</p>
+                </section>
+
+                <section>
+                    <h3>Logiciel FTP</h3>
+                    <p>Nous allons avoir besoin d'un logiciel (ou <span class="u">client</span>)</p>
+                    <p><a href="https://filezilla-project.org/download.php?show_all=1" target="_blank">FileZilla</a> est le plus connu</p>
+                    <p>Gratuit et compatible avec <span class="highlight">Windows</span> et <span class="highlight">Mac</span></p>
+                </section>
+
+                <section>
+                    <img class="no-style" src="src/img/filezilla.png" alt="">
+                </section>
+
+                <section>
+                    <ul>
+                        <li>Hôte : home241521242.1and1-data.host</li>
+                        <li>Identifiant : u48598234-esin-p2026</li>
+                        <li>Mot de passe : sXi8ycVvZ-</li>
+                        <li>Port : 22</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Vous pouvez maintenant glisser les fichiers sur la partie de droite pour les envoyer sur le serveur</p>
+                    <p>Votre site est en ligne : <a href="https://esin-p2026.bruno-simon.com/" target="_blank">https://esin-p2026.bruno-simon.com/</a></p>
+                </section>
+
+                <section>
+                    <h2>Sous-traitance</h2>
+                </section>
+
+                <section>
+                    <p>Il est possible de sous-traiter l'hébergement par une agence qui s'occupera de trouver la meilleure offre et de la gérer pour vous</p>
+                    <ul>
+                        <li><a target="_blank" href="http://www.linkbynet.com/">LinkByNet</a></li>
+                        <li><a target="_blank" href="http://www.waycom.net/">Waycom</a></li>
+                    </ul>
+                    <p>Offre personnalisée en générale coûteuse et inefficace</p>
+                </section>
+
+                <section>
+                    <h2>Hébergement avec intégration continue</h2>
+                </section>
+
+                <section>
+                    <p>L'intégration continue (continuous integration) consiste à automatiser les différents processus de développement</p>
+                    <p>Cela peut concerner le développement, le versionning, les tests, le déploiement, et bien d'autres choses</p>
+                    <p>Dans le cadre de l'hébergement, il s'agit en général de déployer automatiquement quand vous faites un commit</p>
+                </section>
+
+                <section>
+                    <h3>Netlify</h3>
+                    <p><a href="https://www.netlify.com/" target="_blank">netlify.com</a></p>
+                    <p>Déploiement basé sur Git</p>
+                    <p>Quand vous modifiez le repository, Netlify se met à jour automatiquement</p>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>Créer un compte sur <a href="https://www.netlify.com/" target="_blank">Netlify</a></li>
+                        <li>Créer un nouveau site</li>
+                        <li>Associer son compte GitHub</li>
+                        <li>Choisir le repository</li>
+                        <li>🍺</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Il est possible de spécifier une branche particulière, un dossier particulier et une commande à lancer (si vous utilisez un bundler)</p>
+                    <p>Il est aussi possible d'associer un nom de domaine</p>
+                </section>
+
+                <section>
+                    <h3>Vercel</h3>
+                    <p><a href="https://vercel.com/" target="_blank">vercel.com</a></p>
+                    <p>Exactement comme Netlify</p>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>Créer un compte sur <a href="https://vercel.com" target="_blank">Vercel</a></li>
+                        <li>Associer son compte GitHub (plusieurs étapes)</li>
+                        <li>Choisir le repository</li>
+                        <li>Paramétrer le projet (tout par défaut)</li>
+                        <li>🍺</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>GitHub Pages</h3>
+                    <p><a href="https://pages.github.com/" target="_blank">pages.github.com</a></p>
+                    <p>Directement intégré à GitHub</p>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>Allez dans les <span class="hl">Settings</span></li>
+                        <li>Allez dans la section <span class="hl">Pages</span></li>
+                        <li>Choisir la branche concernée (<span class="hl">master</span>)</li>
+                        <li>🍺</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Amazon Web Services (AWS)</h2>
+                </section>
+
+                <section>
+                    <p><a href="https://aws.amazon.com/fr/" target="_blank">aws.amazon.com/fr/</a></p>
+                    <p>AWS est la solution d'hébergement "cloud" de Amazon</p>
+                    <p>Il s'agit d'un très grand nombre de services ayant chacun une utilité particulière dans le cadre d'un hébergement</p>
+                    <p>La compréhension et mise en place de ces services est très difficile, mais les serveurs sont robustes et "scallables"</p>
+                    <p>Le paiement se fait à l'utilisation</p>
+                </section>
+
+                <section>
+                    <p>AWS est utilisé pour des gros projets, et pas forcément des sites</p>
+                    <p>Vous pouvez utiliser AWS pour traiter de la donnée, machine learning, stocker des sauvegardes, compresser des vidéos, entant que serveur de jeux en lignes, pour versionner vos projets, etc.</p>
+                    <p>Le modèle économique est intéressant car, si vous avez peu d'activité, vous ne paierez presque rien, mais si vous avez du succès, les charges peuvent vite monter</p>
+                </section>
+
+                <section>
+                    <h2>Comment choisir ?</h2>
+                </section>
+
+                <section>
+                    <h3>Sites statiques</h3>
+                    <p>On appelle "sites statiques" des sites composés de fichiers statiques tels que HTML, CSS, JS, images, fonts, etc. (pas de développement back)</p>
+                    <p>Aussi appelés "single page application" (SPA)</p>
+                    <p>👉 Hébergements avec intégration continue (Vercel, Netlify, GitHub Pages)</p>
+                </section>
+
+                <section>
+                    <h3>Sites back-end simple</h3>
+                    <p>Si votre site nécessite des features telles que connexion, base de données, panier, scores, etc., il faut en général les développées avec un language back tel que PHP</p>
+                    <p>👉 Hébergements classique (o2switch, OVH, 1and1)</p>
+                </section>
+
+                <section>
+                    <h3>Sites complexe</h3>
+                    <p>Si votre site est complexe, nécessite beaucoup de calculs, nécessite de faire tourner un serveur sur lequel des joueurs peuvent se connecter, fait de l'IA, traite de la vidéo, etc.</p>
+                    <p>👉 AWS</p>
+                </section>
+
+                <section>
+                    <h3>Autres facteurs de choix</h3>
+                </section>
+
+                <section>
+                    <h2>Noms de domaines</h2>
+                    <p>Correspond à l'adresse de votre site (ex : <a target="_blank" href="http://bruno-simon.com">bruno-simon.com</a>)</p>
+                    <p>Ne pas confondre avec le sous-domaine<br>(ex : <a target="_blank" href="http://bruno-simon.com">sous-domaine.bruno-simon.com</a>)</p>
+                    <p>Les sous-domaines sont en général gratuits et illimités</p>
+                    <p>Vous avez peut-être intérêt à avoir plusieurs nom de domaines tout de suite</p>
+                </section>
+
+                <section>
+                    <h2>Espace de stockage</h2>
+                    <p>Fonctionne comme le disque dur de votre ordinateur</p>
+                    <p>Si votre site n'a rien de spécial, n'importe quel espace suffira</p>
+                    <p>Si votre site contient des vidéos HD, une grande quantité d'images ou laisse la possibilité aux utilisateurs d'envoyer des fichiers, il faudra peut-être prévoir plus large</p>
+                </section>
+
+                <section>
+                    <h2>RAM</h2>
+                    <p>Capacité à prendre en charge les visites</p>
+                    <p><span class="highlight">⚠️ Arnaque</span></p>
+                </section>
+
+                <section>
+                    <h2>CPU</h2>
+                    <p>Capacité à faire des calculs (si vous traitez beaucoup de donnée)</p>
+                </section>
+
+                <section>
+                    <h2>Languages supportés</h2>
+                    <p>Si votre site utilise du PHP, il faut que le serveur le supporte</p>
+                    <p>Les offres comprennnent en général PHP, parfois Python et Ruby</p>
+                    <p>Il existe plusieurs versions de ces languages. Vérifiez que celle du site correspond à celle de l'hébergeur</p>
+                </section>
+
+                <section>
+                    <h2>CDN</h2>
+                    <p>Content Delivery Network</p>
+                    <p>Duplication des contenus statiques du site (images, vidéos, ...) sur différents serveurs à travers le monde</p>
+                    <p>Permet d'avoir un site rapide quelque soit la position géographique</p>
+                    <p>Utile pour les sites internationaux</p>
+                </section>
+
+                <section>
+                    <h2>Nombre de bases de données</h2>
+                    <p>Si votre site utilise une base de données (<span class="highlight">SQL</span>)</p>
+                </section>
+
+                <section>
+                    <h2>Certificat SSL</h2>
+                    <p>Permet d'encrypter les requêtes</p>
+                    <p>Lorsque vous naviguez sur un site, tout ce que vous envoyez et recevez peut être intercepté facilement</p>
+                    <p>L'encryptage SSL permet d'éviter ça</p>
+                    <p>L'accès à votre site ne se fait plus par <span class="highlight">http://</span>, mais par <span class="highlight">https://</span></p>
+                    <p>C'est le cas de Facebook, Google, Twitter, Youtube</p>
+                    <p><img src="src/img/ssl-facebook.png" alt=""></p>
+                </section>
+
+                <section>
+                    <h2>Services annexes</h2>
+                    <p>Les hébergeurs vont essayer de vous vendre plein de services</p>
+                    <ul>
+                        <li>Boîte mail</li>
+                        <li>Bibliothèque d'images</li>
+                        <li>Outils de référencement</li>
+                        <li>Outils de monitoring</li>
+                        <li>CMS pré-installés</li>
+                        <li>...</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Nom de domaine</h2>
+                </section>
+
+                <section>
+                    <p><span class="highlight">https</span>://<span class="highlight">pmd-2022</span>.<span class="highlight">bruno-simon</span>.<span class="highlight">com</span><span class="highlight">/blog/</span></p>
+                    <ul>
+                        <li class="fragment">Protocol</li>
+                        <li class="fragment">Sous-domaine</li>
+                        <li class="fragment">Nom de domaine de second niveau (ou nom de domaine)</li>
+                        <li class="fragment">Nom de domaine de premier niveau (ou extension)</li>
+                        <li class="fragment">Chemin</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Certains hébergeurs vous feront créer le nom de domaine directement durant l'inscription</p>
+                    <p>Le nom de domaine peut être pris à part de l'hébergement, mais ça complique souvent la tâche</p>
+                </section>
+
+                <section>
+                    <p>Un nom de domaine peut mettre plusieurs minutes voir plusieurs heures pour se mettre en place</p>
+                    <p>Ce délais change selon le pays</p>
+                    <p>On parle de <span class="highlight">propagation DNS</span>, c'est le temps que mettent les serveurs à travers le monde pour apprendre l'URL de votre site</p>
+                </section>
+
+                <section>
+                    <p>Depuis quelques années, il est possible d'acheter des extensions autres que .com, .fr, .org, etc.</p>
+                    <p>
+                        <span class="fragment">.buzz</span>
+                        <span class="fragment">.bar</span>
+                        <span class="fragment">.clothing</span>
+                        <span class="fragment">.guide</span>
+                        <span class="fragment">.club</span>
+                        <span class="fragment">.sexy</span>
+                        <span class="fragment">.xxx</span>
+                        <span class="fragment">.pizza</span>
+                        <span class="fragment">.beer</span>
+                        <span class="fragment">.vodka</span>
+                        <span class="fragment">.ninja</span>
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Sous-domaines</h3>
+                    <p>En général illimités (ou presque) et gratuits</p>
+                    <p>Permet d'associer un site à un domaine<br>(ex : <a href="">blog.monsite.com</a> ou <a href="">forum.monsite.com</a>)</p>
+                    <p><span class="u">www</span> est un sous-domaine</p>
+                </section>
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>

@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 01 - Fondamentaux</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div id="pagination"></div>
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 01</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="http://bruno-simon.com/esin/e1-p2026/">http://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Fondamentaux</h1>
+                </section>
+
+                <section>
+                    <h2>Développement front</h2>
+                    <ul>
+                        <li>Partie visible par l'utilisateur</li>
+                        <li>Interprété par le navigateur</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Développement back</h2>
+                    <ul>
+                        <li>Partie invisible pour l'utilisateur</li>
+                        <li>Côté serveur</li>
+                        <li>Ne pas confondre avec "back office"<br />(panneau d'administration)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Navigateurs</h2>
+                </section>
+
+                <section>
+                    <p>Desktop</p>
+                    <ul>
+                        <li class="fragment">Chrome</li>
+                        <li class="fragment">Internet Explorer (Edge)</li>
+                        <li class="fragment">Firefox</li>
+                        <li class="fragment">Safari</li>
+                        <li class="fragment">Opera</li>
+                        <li class="fragment">Et bien d'autres !</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Mobile</p>
+                    <ul>
+                        <li class="fragment">Chrome Android</li>
+                        <li class="fragment">Chrome iOS</li>
+                        <li class="fragment">Safari iOS</li>
+                        <li class="fragment">Opera Mini</li>
+                        <li class="fragment">Android Browser</li>
+                        <li class="fragment">Et bien d'autres !</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Chaque navigateur utilise un moteur de rendu</p>
+                    <p>Certains navigateurs utilisent le même moteur de rendu (Dernières version de Chrome et dernières version de Edge)</p>
+                    <p>C'est un beau bazar</p>
+                </section>
+
+                <section>
+                    <p>Statistiques d'utilisation : <a href="http://gs.statcounter.com/" target="_blank">gs.statcounter.com</a></p>
+                    <p>Chrome en tête</p>
+                    <p>Change beaucoup selon le pays</p>
+                </section>
+
+                <section>
+                    <h2>Compatibilité</h2>
+                </section>
+
+                <section>
+                    <p>Facteurs :</p>
+                    <ul>
+                        <li class="fragment">Navigateur</li>
+                        <li class="fragment">Version du navigateur</li>
+                        <li class="fragment">Moteur</li>
+                        <li class="fragment">Version du moteur</li>
+                        <li class="fragment">OS</li>
+                        <li class="fragment">Résolution</li>
+                        <li class="fragment">Densité de pixels</li>
+                        <li class="fragment">Écran tactile</li>
+                        <li class="fragment">Puissance du CPU</li>
+                        <li class="fragment">Puissance du GPU</li>
+                        <li class="fragment">Connexion</li>
+                        <li class="fragment">Etc. 😱</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Certaines fonctionnalités ne sont pas compatibles avec tous les navigateurs</p>
+                    <p>Le site <a href="http://caniuse.com" target="_blank">Can I Use</a> permet de savoir quels sont les navigateurs supportant la fonctionnalité</p>
+                </section>
+
+                <section>
+                    <h2>Langages</h2>
+                </section>
+
+                <section>
+                    <p>Front</p>
+                    <ul>
+                        <li class="fragment"><span class="hl">HTML</span> Contenus</li>
+                        <li class="fragment"><span class="hl">CSS</span> Style</li>
+                        <li class="fragment"><span class="hl">JS</span> Interactions programmées</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Il en existe bien d'autres</p>
+                    <ul>
+                        <li>ActionScript 3</li>
+                        <li>HAML</li>
+                        <li>SASS</li>
+                        <li>LESS</li>
+                        <li>Stylus</li>
+                        <li>GLSL</li>
+                        <li>CoffeeScript</li>
+                        <li>TypeScript</li>
+                        <li>Etc.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Back</p>
+                    <ul>
+                        <li class="fragment">PHP</li>
+                        <li class="fragment">Python</li>
+                        <li class="fragment">Ruby</li>
+                        <li class="fragment">Perl</li>
+                        <li class="fragment">Java</li>
+                        <li class="fragment">JavaScript (?)</li>
+                        <li class="fragment">SQL</li>
+                        <li class="fragment">Etc.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Outils</h2>
+                </section>
+
+                <section>
+                    <p>Le minimum</p>
+                    <ul>
+                        <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
+                        <li><a href="https://www.google.com/intl/fr_fr/chrome/" target="_blank">Chrome</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Debugger sur Chrome</h2>
+                </section>
+
+                <section>
+                    <p>Chrome est idéal pour développer un site</p>
+                    <p>Ouvrez les outils de développement avec le raccourci <span class="highlight">CMD + ALT + I</span></p>
+                    <p>Ou en allant dans <span class="highlight">Plus d'outils > Outils de développement</span> </p>
+                    <p><img width="450" src="src/img/image-1.png" alt=""></p>
+                </section>
+
+                <section>
+                    <p>Une fenêtre devrait s'ouvrir</p>
+                    <p><img width="700" src="src/img/image-2.png" alt=""></p>
+                </section>
+
+                <section>
+                    <p>Nous n'allons utiliser que l'onglet <span class="highlight">Elements</span> pour commencer</p>
+                    <p>La partie de gauche correspond au HTML</p>
+                    <p>Il est possible de le modifier directement, mais ces modifications seront perdues en actualisant</p>
+                </section>
+
+                <section>
+                    <p>La partie de droite correspond au CSS appliqué à l'élément sélectionné dans le HTML</p>
+                    <p>Il est aussi possible de le modifier directement, mais ces modifications seront perdues en actualisant</p>
+                </section>
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>

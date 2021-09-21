@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 03 - CSS</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div id="pagination"></div>
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 03</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="http://bruno-simon.com/esin/e1-p2026/">http://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>CSS</h1>
+                    <p>Cascading Style Sheet</p>
+                </section>
+
+                <section>
+                    <p>Le CSS permet de donner du style à notre page HTML</p>
+                    <p>On va pouvoir changer la couleur du texte, mettre une image de fond, créer des marges, etc.</p>
+                </section>
+
+                <section>
+                    <p>Par défaut certaines balises possède déjà un style</p>
+                    <p class="fragment">Par exemple, le texte dans les balises <span class="hl">&lt;h1&gt;</span> paraîtra plus gros car c'est un titre</p>
+                </section>
+
+                <section>
+                    <p>Il existe deux façon de rajouter du style dans la page</p>
+                </section>
+
+                <section>
+                    <p>Avec la balise <span class="hl">&lt;style&gt;</span> dans le <span class="hl">&lt;head&gt;</span></p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Titre de la page&lt;/title&gt;
+        &lt;style&gt;
+            Mon style ici
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        Hello World
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                    </div>
+                    <p>A éviter dans un souci de maintenabilité</p>
+                </section>
+
+                <section>
+                    <p>Avec la balise <span class="hl">&lt;link&gt;</span> dans le <span class="hl">&lt;head&gt;</span> faisant un lien vers un fichier <span class="hl">.css</span> qui contiendra le style</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Titre de la page&lt;/title&gt;
+        &lt;link rel="stylesheet" href="style.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        Hello World
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>On peut appeler plusieurs fichiers CSS pour une page</p>
+                    <p>On peut appeler un même fichier CSS pour deux pages</p>
+                </section>
+                
+                <section>
+                    <p>Créez un fichier <span class="hl">style.css</span> dans le même répertoir que vos pages HTML</p>
+                    <p>Ajoutez ce code dans la balise <span class="hl">&lt;head&gt;</span> de votre page HTML</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;link rel="stylesheet" href="style.css"&gt;
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Sélecteurs</h2>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1 { color: red; }
+                        </code></pre>
+                    </div>
+                    <p>Sélectionne toutes les balises h1 dans la page HTML et leur donne une couleur rouge</p>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1 { color: red; }
+                        </code></pre>
+                    </div>
+                    <ul>
+                        <li>La première partie <span class="u">h1</span> est appelée <span class="hl">sélecteur</span></li>
+                        <li>La deuxième partie <span class="u">color: red;</span> entre accolades <span class="hl">{ }</span> correspond au style</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Ce même code peut s'écrire de plusieurs façons</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1 { color: red; }
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1{color:red;}
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1 {
+    color: red;
+}
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1
+{
+    color: red;
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Dans un souci de lisibilité des slides, le CSS sera présenté ainsi</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1 { color: red; }
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;h1 class=&quot;toto&quot;&gt;Titre en rouge&lt;/h1&gt;
+&lt;h1&gt;Titre normal&lt;/h1&gt;
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.toto { color: red; }
+                        </code></pre>
+                    </div>
+                    <p>Sélectionne toutes les balises ayant la classe <span class="u">toto</span> dans la page HTML et leur donne une couleur rouge</p>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;h1 id=&quot;toto&quot;&gt;Titre en rouge&lt;/h1&gt;
+&lt;h1&gt;Titre normal&lt;/h1&gt;
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+#toto { color: red; }
+                        </code></pre>
+                    </div>
+                    <p>Sélectionne la première balise ayant l'ID <span class="u">toto</span> dans la page HTML et lui donne une couleur rouge</p>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1:hover { color: red; }
+                        </code></pre>
+                    </div>
+                    <p>Sélectionne toutes les balises h1 dans la page HTML et leur donne une couleur rouge lorsque le curseur passe dessus</p>
+                </section>
+
+                <section>
+                    <p>Il est possible de les combiner</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1 { color: blue; }
+h1:hover { color: red; }
+                        </code></pre>
+                    </div>
+                    <p>Les h1 seront tous bleu par défaut et rouge lorsque le curseur passera dessus</p>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1 { color: blue; }
+h1 { color: green; }
+                        </code></pre>
+                    </div>
+                    <p>Si les selecteurs sont les mêmes, les propriétés de la dernière écraseront les propriétés des autres</p>
+                    <p class="fragment">Les h1 seront donc verts</p>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1.toto { color: blue; }
+h1 { color: green; }
+                        </code></pre>
+                    </div>
+                    <p>Si les selecteurs sont différents, les propriétés du selecteur le plus fort écraseront les propriétés des autres</p>
+                    <p>La force est définie par divers facteurs que nous ne verrons pas mais les h1 seront bleus</p>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1, h2, h3 { color: red; }
+                        </code></pre>
+                    </div>
+                    <p>Sélectionne tous les h1, h2 et h3 et leur donne la couleur rouge</p>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;h1&gt;Salut &lt;span&gt;tout le monde&lt;/span&gt;&lt;/h1&gt;
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1 span { color: red; }
+                        </code></pre>
+                    </div>
+                    <p>Séléctionne les span se trouvant dans des h1 et leur donne la couleur rouge</p>
+                </section>
+
+                <section>
+                    <p>Exercice</p>
+                    <p><a href="https://flukeout.github.io/" target="_blank">CSS Diner</a></p>
+                </section>
+
+                <section>
+                    <h2>Propriétés</h2>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1 { color: red; background: blue; font-size: 20px; }
+                        </code></pre>
+                    </div>
+                    <p>La partie entre accolades <span class="hl">{ }</span> contient les propriétés qui vont définir le style de l'élément sélectionné</p>
+                    <p>Ces propriétés sont séparées par des points virgules <span class="hl">;</span></p>
+                    <p class="fragment">Les h1 apparaîtront en rouge avec un arrière plan bleu et une taille de police de 20 pixels</p>
+                </section>
+
+                <section>
+                    <p>Certains préfèrent écrire ainsi</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+h1 {
+    color: red;
+    background-color: blue;
+    font-size: 20px;
+}
+                        </code></pre>
+                    </div>
+                    <p>Les retours à la ligne n'ont aucune importance</p>
+                </section>
+
+                <!-- PROPRIÉTÉS : TEXT -->
+                <section>
+                    <h3>Color</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { color: red; }
+p { color: #ff0000; }
+p { color: rgb(255, 0, 0); }
+p { color: hsl(0, 100%, 50%); }
+                        </code></pre>
+                    </div>
+                    <p>Chacun de ces lignes a le même effet, rendre le texte rouge</p>
+                </section>
+
+                <section>
+                    <h3>Font-family</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { font-family: Georgia; }
+                        </code></pre>
+                    </div>
+                    <p>Change la police du texte</p>
+                    <p>La police doit être installée sur l'ordinateur</p>
+                </section>
+
+                <section>
+                    <h3>Font-family</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { font-family: "Lucida Sans Unicode"; }
+                        </code></pre>
+                    </div>
+                    <p>Si le nom de la police contient des espaces, il faut la mettre entre guillemets</p>
+                </section>
+
+                <section>
+                    <h3>Font-family</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { font-family: Helvetica, Arial, sans-serif; }
+                        </code></pre>
+                    </div>
+                    <p>Si plusieurs polices sont spécifiées (séparées par des virgules) la première est utilisée si disponible, sinon la suivante</p>
+                    <p><a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">Les plus utilisées</a></p>
+                </section>
+
+                <section>
+                    <h3>Font-size</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { font-size: 40px; }
+                        </code></pre>
+                    </div>
+                    <p>Change la taille de la police</p>
+                </section>
+
+                <section>
+                    <h3>Font-style</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { font-style: italic; }
+                        </code></pre>
+                    </div>
+                    <p>Permet de mettre un texte en italic</p>
+                </section>
+
+                <section>
+                    <h3>Font-weight</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { font-weight: bold; }
+                        </code></pre>
+                    </div>
+                    <p>Valeurs : <span class="hl">normal</span>, <span class="hl">bold</span>, <span class="hl">lighter</span>, <span class="hl">100</span>, <span class="hl">200</span>, <span class="hl">300</span>, <span class="hl">400</span>, <span class="hl">500</span>, <span class="hl">600</span>, <span class="hl">700</span></p>
+                    <p>Change l'epaisseur de la police</p>
+                    <p>Si la police n'existe pas dans l'épaisseur spécifiée, certains navigateurs vont eux-même générer l'épaisseur</p>
+                </section>
+
+                <section>
+                    <h3>Line-height</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { line-height: 30px; }
+                        </code></pre>
+                    </div>
+                    <p>Change la hauteur des lignes</p>
+                </section>
+
+                <section>
+                    <h3>Text-align</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { text-align: center; }
+                        </code></pre>
+                    </div>
+                    <p>Valeurs : <span class="hl">left</span>, <span class="hl">center</span>, <span class="hl">right</span></p>
+                    <p>Change l'alignement horizontal du text</p>
+                </section>
+
+                <section>
+                    <h3>Text-transform</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { text-transform: capitalize; }
+                        </code></pre>
+                    </div>
+                    <p>Valeurs : <span class="hl">none</span>, <span class="hl">lowercase</span>, <span class="hl">uppercase</span>, <span class="hl">capitalize</span></p>
+                    <p>Change la casse (minuscules, majuscules, capitales)</p>
+                </section>
+
+                <section>
+                    <h3>Text-decoration</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { text-decoration: underline; }
+                        </code></pre>
+                    </div>
+                    <p>Valeurs : <span class="hl">underline</span>, <span class="hl">line-through</span>, <span class="hl">overline</span>, <span class="hl">none</span></p>
+                    <p>Rajoute une bar en dessous, au dessus ou à travers le text</p>
+                </section>
+
+                <!-- PROPRIÉTÉS : OPACITY -->
+                <section>
+                    <h3>Opacity</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { opacity: 0.5; }
+                        </code></pre>
+                    </div>
+                    <p>Change l'opacité de l'élément</p>
+                </section>
+
+                <!-- PROPRIÉTÉS : BACKGROUND -->
+                <section>
+                    <h3>background-color</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { background-color: #ff0000}
+                        </code></pre>
+                    </div>
+                    <p>Change la couleur de fond</p>
+                    <p>Même valeurs que pour la propriété color</p>
+                </section>
+
+                <section>
+                    <h3>background-image</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { background-image: url('https://bruno-simon.com/esin/e1-p2026/resources/image-1.jpg'); }
+                        </code></pre>
+                    </div>
+                    <p>Rajoute une image de fond</p>
+                    <p>L'URL peut être en absolu ou en relatif</p>
+                </section>
+
+                <section>
+                    <h3>background-repeat</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { background-repeat: no-repeat; }
+                        </code></pre>
+                    </div>
+                    <p>Valeurs : <span class="hl">repeat</span>, <span class="hl">repeat-x</span>, <span class="hl">repeat-y</span>, <span class="hl">no-repeat</span></p>
+                    <p>Répétition du background</p>
+                </section>
+
+                <section>
+                    <h3>background-position</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { background-position: right bottom; }
+                        </code></pre>
+                    </div>
+                    <p>Valeurs horizontales : <span class="hl">left</span>, <span class="hl">center</span>, <span class="hl">right</span></p>
+                    <p>Valeurs verticales : <span class="hl">top</span>, <span class="hl">center</span>, <span class="hl">bottom</span></p>
+                    <p>Alignement horizontal ET vertical du background</p>
+                </section>
+
+                <section>
+                    <h3>background</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { background: #ff0000 url('https://bruno-simon.com/esin/e1-p2026/resources/image-1.jpg') right bottom no-repeat; }
+                        </code></pre>
+                    </div>
+                    <p>Version shorthand</p>
+                    <p>On écrit toutes les valeurs à la suite</p>
+                </section>
+
+                <section>
+                    <h3>background-size</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { background-size: cover; }
+                        </code></pre>
+                    </div>
+                    <p>Valeurs : <span class="hl">cover</span>, <span class="hl">contain</span>, <span class="hl">auto</span></p>
+                    <p>Permet de définir comment le background doit remplir l'élément tout en gardant son ratio</p>
+                </section>
+
+                <!-- PROPRIÉTÉS : SIZES -->
+                <section>
+                    <h3>Width</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { width: 200px; }
+                        </code></pre>
+                    </div>
+                    <p>Change la largeur de l'élément</p>
+                </section>
+
+                <section>
+                    <h3>Min-width / Max-width</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p {
+    min-width: 200px;
+    max-width: 400px;
+}
+                        </code></pre>
+                    </div>
+                    <p>Change la largeur minimum et maximum de l'élément</p>
+                </section>
+
+                <section>
+                    <h3>Height</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { height: 200px; }
+                        </code></pre>
+                    </div>
+                    <p>Change la hauteur de l'élément</p>
+                </section>
+
+                <section>
+                    <h3>Min-height / Max-height</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p {
+    min-height: 200px;
+    max-height: 400px;
+}
+                        </code></pre>
+                    </div>
+                    <p>Change la hauteur minimum et maximum de l'élément</p>
+                </section>
+
+                <section>
+                    <h3>Padding</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { padding: 20px; }
+                        </code></pre>
+                    </div>
+                    <p>Rajoute une marge intérieur de tous les côtés</p>
+                </section>
+
+                <section>
+                    <h3>Padding</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p {
+    padding-top: 40px;
+    padding-left: 20px;
+}
+                        </code></pre>
+                    </div>
+                    <p>Rajoute une marge intérieur en haut ET à gauche uniquement</p>
+                </section>
+
+                <section>
+                    <h3>Padding</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { padding: 40px 0 0 20px; }
+                        </code></pre>
+                    </div>
+                    <p>Même chose, mais en version <span class="hl">shorthand</span></p>
+                </section>
+
+                <section>
+                    <h3>Margin</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { margin: 20px; }
+                        </code></pre>
+                    </div>
+                    <p>Rajoute une marge extérieur de tous les côtés</p>
+                </section>
+
+                <section>
+                    <h3>Margin</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p {
+    margin-right: 40px;
+    margin-bottom: 20px;
+}
+                        </code></pre>
+                    </div>
+                    <p>Rajoute une marge extérieur à droite ET en bas uniquement</p>
+                </section>
+
+                <section>
+                    <h3>Margin</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { margin: 0 40px 20px 0; }
+                        </code></pre>
+                    </div>
+                    <p>Même chose, mais en version <span class="hl">shorthand</span></p>
+                </section>
+
+                <!-- PROPRIÉTÉS : BORDER -->
+                <section>
+                    <h3>Border</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { border: 5px solid #ff0000; }
+                        </code></pre>
+                    </div>
+                    <p>Valeurs de style : <span class="hl">solid</span>, <span class="hl">dotter</span>, <span class="hl">dashed</span></p>   
+                    <p>Rajoute un bord rouge de 5px de chaque côté</p>
+                </section>
+
+                <!-- PROPRIÉTÉS : DISPLAY -->
+                <section>
+                    <h3>Display</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+p { display: inline; }
+                        </code></pre>
+                    </div>
+                    <p>Valeurs de style : <span class="hl">inline</span>, <span class="hl">block</span>, <span class="hl">inline-block</span></p>   
+                    <p>Force l'élément à se comporter comme un inline</p>
+                </section>
+
+                <!-- PROPRIÉTÉS : POSITION -->
+                <section>
+                    <h3>Positionnement</h3>
+                    <p>Permet de placer l'élément selon différents critères</p>
+                    <p>Il existe plusieurs types de positionnement</p>
+                </section>
+
+                <section>
+                    <h3>Positionnement relatif</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element {
+    position: relative;
+}
+                        </code></pre>
+                    </div>
+                    <p>Ce code indique que l'élément va pouvoir être déplacé relativement à sa position d'origine</p>
+                </section>
+
+                <section>
+                    <h3>Positionnement relatif</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element {
+    position: relative;
+    top: 60px;
+    left: 100px;
+}
+                        </code></pre>
+                    </div>
+                    <p>L'élément va être déplacé de <span class="hl">100px</span> vers la droite et <span class="hl">60px</span> vers le bas par rapport à sa position d'origine</p>
+                </section>
+
+                <section>
+                    <h3>Positionnement relatif</h3>
+                    <img class="no-style" src="src/img/position-relative-1.png" alt="">
+                </section>
+
+                <section>
+                    <h3>Positionnement relatif</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element {
+    position: relative;
+    top:-100px;
+    left:-40px;
+}
+                        </code></pre>
+                    </div>
+                    <p>L'élément va être déplacé de <span class="hl">100px</span> vers le haut et <span class="hl">40px</span> vers la gauche par rapport à sa position d'origine</p>
+                </section>
+
+                <section>
+                    <h3>Positionnement relatif</h3>
+                    <img class="no-style" src="src/img/position-relative-2.png" alt="">
+                </section>
+
+                <section>
+                    <h3>Positionnement fixe</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element {
+    position: fixed;
+}
+                        </code></pre>
+                    </div>
+                    <p>Ce code indique que l'élément va être placé toujours de la même manière par rapport à l'écran</p>
+                </section>
+
+                <section>
+                    <h3>Positionnement fixe</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+}
+                        </code></pre>
+                    </div>
+                    <p>L'élément va être positionné en parmanence à <span class="hl">80px</span> du haut de l'écran et <span class="hl">20px</span> de la gauche de l'écran</p>
+                </section>
+
+                <section>
+                    <h3>Positionnement fixe</h3>
+                    <img class="no-style" src="src/img/position-fixed-1.png" alt="">
+                </section>
+
+                <section>
+                    <h3>Positionnement fixe</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+                        </code></pre>
+                    </div>
+                    <p>L'élément va être positionné en parmanence à <span class="hl">0px</span> du bas de l'écran et <span class="hl">0px</span> de la droite de l'écran</p>
+                </section>
+
+                <section>
+                    <h3>Positionnement fixe</h3>
+                    <img class="no-style" src="src/img/position-fixed-2.png" alt="">
+                </section>
+
+                <section>
+                    <h3>Positionnement fixe</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element {
+    position: fixed;
+    right:-30px;
+    bottom: 0;
+}
+                        </code></pre>
+                    </div>
+                    <p>L'élément va être positionné en parmanence à <span class="hl">0px</span> du bas de l'écran et <span class="hl">30px</span> en dehors de l'écran à droite</p>
+                </section>
+
+                <section>
+                    <h3>Positionnement fixe</h3>
+                    <img class="no-style" src="src/img/position-fixed-3.png" alt="">
+                </section>
+
+                <section>
+                    <h3>Positionnement absolu</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element {
+    position: absolute;
+}
+                        </code></pre>
+                    </div>
+                    <p>L'élément va se placer en absolu par rapport à son parent le plus proche ayant un positionnement (relatif, fixe ou absolu)</p>
+                </section>
+
+                <section>
+                    <h3>Positionnement absolu</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.container {
+    position: relative;
+}
+.container .element {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+                        </code></pre>
+                    </div>
+                    <p>L'élément va être positionné à <span class="hl">10px</span> du bas de <span class="hl">.container</span> et <span class="hl">10px</span> de la gauche de <span class="hl">.container</span></p>
+                </section>
+
+                <section>
+                    <h3>Positionnement absolu</h3>
+                    <img class="no-style" src="src/img/position-absolu-1.png" alt="">
+                </section>
+
+                <section>
+                    <h3>Positionnement absolu</h3>
+                    <p>Si <span class="hl">.container</span> n'avait pas eu de positionnement, <span class="hl">.element</span> aurait tenté de se positionner par rapport à l'élément parent suivant</p>
+                </section>
+
+                <section>
+                    <h3>Positionnement absolu</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.container {
+    position: relative;
+}
+.container .element {
+    position: absolute;
+    top: 50%;
+    left:-30px;
+}
+                        </code></pre>
+                    </div>
+                    <p>L'élément va être positionné à <span class="hl">50%</span> du haut de <span class="hl">.container</span> et <span class="hl">-30px</span> de la gauche de <span class="hl">.container</span></p>
+                </section>
+
+                <section>
+                    <h3>Positionnement absolu</h3>
+                    <img class="no-style" src="src/img/position-absolu-2.png" alt="">
+                </section>
+
+                <!-- PROPRIÉTÉS : OVERFLOW -->
+                <section>
+                    <h3>Overflow</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.container {
+    position: relative;
+    overflow: hidden;
+}
+.container .element {
+    position: absolute;
+    top: 50%;
+    left:-50px;
+}
+                        </code></pre>
+                    </div>
+                    <p>Valeurs de style : <span class="hl">visible</span>, <span class="hl">hidden</span></p>
+                    <p>Permet de faire disparaitre ce qui dépasse de l'élément</p>
+                </section>
+
+                <section>
+                    <h3>overflow</h3>
+                    <img class="no-style" src="src/img/overflow.png" alt="">
+                </section>
+
+                <!-- PROPRIÉTÉS : Z-INDEX -->
+                <section>
+                    <h3>Z-Index</h3>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+.element-1 { z-index: 2; }
+.element-2 { z-index: 1; }
+                        </code></pre>
+                    </div>
+                    <p>Par défaut, si deux éléments sont l'un sur l'autre, le dernier dans le code apparait par dessus l'autre</p>
+                    <p>z-index permet de changer cet ordre</p>
+                    <p>La valeur doit être n'importe quel nombre positif</p>
+                </section>
+
+
+<!-- 
+
+    BULLET POINTS :
+        ✓ short-hand
+        properties only for specific elements
+        compatiblity
+
+    LIST :
+
+        ✓ color
+        ✓ font-family
+        ✓ font-size
+        ✓ font-style
+        ✓ font-weight
+        ✓ line-height
+        ✓ text-align
+        ✓ text-transform
+        ✓ text-decoration
+
+        ✓ opacity
+
+        ✓ background-color
+        ✓ background-image
+        ✓ background-position
+        ✓ background-repeat
+        background-size
+
+        ✓ width
+        ✓ min-width
+        ✓ max-width
+        ✓ height
+        ✓ min-height
+        ✓ max-height
+        ✓ padding
+        ✓ margin
+
+        ✓ border-color
+        ✓ border-width
+        ✓ border-style
+
+        ???
+        ✓ display
+        ✓ position
+        ✓ top
+        ✓ left
+        ✓ right
+        ✓ bottom
+        ✓ overflow
+        ✓ z-index
+
+        ???
+        text-shadow
+        box-shadow
+-->
+
+
+
+
+                <section>
+                    <p>Liste des propriétés CSS : <a href="http://www.w3schools.com/cssref/default.asp" target="_blank">www.w3schools.com/cssref/default.asp</a></p>
+                </section>
+
+
+                <!-- <section>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+
+                        </code></pre>
+                    </div>
+                </section> -->
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>
