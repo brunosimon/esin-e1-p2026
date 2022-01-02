@@ -1,0 +1,176 @@
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 240px;
+    margin: 20px;
+    background: lightgray;
+    perspective: 800px;
+}
+
+.container *
+{
+    transform-style: preserve-3d;
+}
+
+.element
+{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: orange;
+}
+
+.transition
+{
+    position: relative;
+    transform: translateX(10px);
+    /* left: 0px; */
+
+    transition-property: transform;
+    transition-duration: 3s;
+    /* transition-delay: 2s; */
+    transition-timing-function: cubic-bezier(0.6, 0.13, 0.41, 1.12);
+
+    will-change: transform;
+}
+
+.container:hover .transition
+{
+    transform: translateX(350px);
+    /* left: 350px; */
+}
+
+.animation
+{
+    animation-name: my-super-animation;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    /* animation-delay: 3s; */
+    animation-iteration-count: infinite;
+    /* animation-direction: alternate-reverse; */
+    /* animation-fill-mode: both; */
+    animation-play-state: paused;
+
+    will-change: transform;
+}
+
+.animation:hover
+{
+    animation-play-state: running;
+}
+
+.animation::after
+{
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: red;
+
+    animation-name: my-super-animation-2;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+
+    will-change: opacity;
+}
+
+.animation:hover::after
+{
+    animation-play-state: running;
+}
+
+@keyframes my-super-animation
+{
+    0%   { transform: translateX(0) scaleY(0.5); }
+    50%  { transform: translateX(400px) scaleY(1.5); }
+    100% { transform: translateX(200px) scaleY(1); }
+}
+
+@keyframes my-super-animation-2
+{
+    0%   { opacity: 0; }
+    50%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/**
+ * Equalizer
+ */
+.equalizer
+{
+    display: flex;
+    width: 200px;
+    height: 100px;
+}
+
+.equalizer .bar
+{
+    --duration: 2s;
+    flex-grow: 1;
+    height: 100%;
+    margin: 0 2px;
+    background: #ffffff;
+    animation: equalizer-bar-animation var(--duration) infinite;
+    animation-fill-mode: backwards;
+}
+
+@keyframes equalizer-bar-animation
+{
+    0%   { transform: scaleY(0.1); }
+    3%   { transform: scaleY(1); }
+    100% { transform: scaleY(0.1); }
+}
+
+.equalizer .bar-0 { animation-delay: calc(var(--duration) * 0.0); }
+.equalizer .bar-1 { animation-delay: calc(var(--duration) * 0.7); }
+.equalizer .bar-2 { animation-delay: calc(var(--duration) * 0.6); }
+.equalizer .bar-3 { animation-delay: calc(var(--duration) * 0.9); }
+.equalizer .bar-4 { animation-delay: calc(var(--duration) * 0.5); }
+.equalizer .bar-5 { animation-delay: calc(var(--duration) * 0.2); }
+.equalizer .bar-6 { animation-delay: calc(var(--duration) * 0.4); }
+.equalizer .bar-7 { animation-delay: calc(var(--duration) * 0.1); }
+.equalizer .bar-8 { animation-delay: calc(var(--duration) * 0.3); }
+.equalizer .bar-9 { animation-delay: calc(var(--duration) * 0.8); }
+
+/**
+ * Menu
+ */
+.menu
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    padding: 40px;
+    background: #cccccc;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    transition-property: transform;
+    transition-duration: 0.6s;
+    transition-delay: 0;
+    transition-timing-function: cubic-bezier(0.28, 0.05, 0.31, 0.97);
+    will-change: transform;
+}
+
+.menu::after
+{
+    content: 'menu';
+    position: absolute;
+    top: 20px;
+    left: 100%;
+    padding: 20px;
+    background: #bbbbbb;
+    text-transform: uppercase;
+}
+
+.menu:hover
+{
+    transform: translateX(0);
+}

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'ARCANE';
+    src: url('../fonts/arcane_nine/arcane-nine.woff2') format('woff2'),
+         url('../fonts/arcane_nine/arcane-nine.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

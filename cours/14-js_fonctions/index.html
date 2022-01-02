@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 14 - JS - Fonctions</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 14</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="https://bruno-simon.com/esin/e1-p2026/">https://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>JavaScript</h1>
+                    <h2>Fonctions</h2>
+                </section>
+
+                <section>
+                    <p>Une fonction permet de regrouper une ou plusieurs instructions qui seront exécutées lorsque nous appelerons cette fonction</p>
+                    <p>Cela permet en général de ne pas avoir à écrire plusieurs fois le même code</p>
+                </section>
+
+                <section>
+                    <p>Exemple d'une fonction qui dit <span class="u">Bonjour !</span> et que nous appelons plusieurs fois</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+function sayHi()
+{
+    console.log('Bonjour !')
+}
+
+sayHi()
+sayHi()
+sayHi()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Déclaration</h2>
+                </section>
+
+                <section>
+                    <p>Une fonction peut être déclarée de plusieurs façons</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Fonction nommée
+function myFunction()
+{
+}
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Fonction anonyme
+const myFunction = function()
+{
+}
+                        </code></pre>
+                    </div>
+                    <p>☝️ la fonction est anonyme mais elle est assignée à une variable qui possède un nom</p>
+                </section>
+
+                <section>
+                    <h2>Paramètres</h2>
+                </section>
+
+                <section>
+                    <p>Une fonction peut être appelée avec des paramètres</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+function sayHi(name, age)
+{
+    console.log(`Bonjour ! Mon nom est ${name} et j'ai ${age} ans.`)
+}
+
+sayHi('Toto', 25)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>☝️ si nous appelons la fonction sans paramètre, <span class="hl">name</span> et <span class="hl">age</span> seront <span class="hl">undefined</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+function sayHi(name, age)
+{
+    console.log(`Bonjour ! Mon nom est ${name} et j'ai ${age} ans.`)
+}
+
+sayHi()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Pour résoudre ça, il est possible de spécifier des paramètres par défaut avec des <span class="hl">=</span> à la déclaration des paramètres</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+function sayHi(name = 'John Doe', age = 99)
+{
+    console.log(`Bonjour ! Mon nom est ${name} et j'ai ${age} ans.`)
+}
+
+sayHi()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>return</h2>
+                </section>
+
+                <section>
+                    <p>Une fonction peut renvoyer un résultat avec <span class="hl">return</span></p>
+                </section>
+
+                <section>
+                    <p>Exemple d'une fonction qui renvoie le minimum entre les deux paramètres</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+function minimum(a, b)
+{
+    if(a &lt; b)
+    {
+        return a
+    }
+    else
+    {
+        return b
+    }
+}
+
+const result = minimum(1, 2)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>☝️ lorsque <span class="hl">return</span> est appelé la fonction s'arrête et ce qui suit ne sera pas executé</p>
+                    <p>Nous pouvons donc écrire la précédente fonction ainsi</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+function minimum(a, b)
+{
+    if(a &lt; b)
+    {
+        return a
+    }
+
+    return b
+}
+
+const result = minimum(1, 2)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Une fonction peut modifier des variables déclarées en dehors d'elle-même</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+let score = 0
+
+function addPoints(count)
+{
+    score += count
+}
+
+addPoints(1)
+addPoints(1)
+addPoints(10)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>La fonction peut être déclarée après son utilisation</p>
+                    <p>Mais ce n'est pas idéal pour la compréhension</p>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+function minimum(a, b)
+{
+    if(a &lt; b)
+    {
+        return a
+    }
+
+    return b
+}
+
+const result = minimum(1, 2)
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const result = minimum(1, 2)
+
+function minimum(a, b)
+{
+    if(a &lt; b)
+    {
+        return a
+    }
+
+    return b
+}
+                        </code></pre>
+                    </div>
+                    <p class="fragment">Les deux fonctions ont le même effet</p>
+                </section>
+
+                <section>
+                    <h2>Fat arrow</h2>
+                </section>
+
+                <section>
+                    <p>Depuis l'ES6, il existe une nouvelle façon d'écrire les fonctions appelée <span class="hl">fat arrow</span></p>
+                    <p>Prenons comme exemple une fonction qui rajoute une valeur aléatoire à la variable envoyée et renvoie le résultat</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const minimum = (a, b) =>
+{
+    if(a &lt; b)
+    {
+        return a
+    }
+
+    return b
+}
+
+const result = minimum(1, 2)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>L'avantage d'une fonction <span class="hl">fat arrow</span> n'est pas que syntaxique</p>
+                    <p>Elle permet aussi de conserver le context (this) dans le cadre du développement orienté objet (class)</p>
+                    <p class="fragment">☝️ mais nous verrons cela dans un autre cours</p>
+                </section>
+
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>

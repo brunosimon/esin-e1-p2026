@@ -1,0 +1,363 @@
+body
+{ 
+    background-color: rgb(0, 0, 0);
+    font-family: 'ARCANE';
+    letter-spacing: 1.3px;
+    color: azure;
+    margin: 0%;
+}
+
+.wrapper
+{
+    width: 1440px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+.header
+{
+    position: relative;
+    background-image:url('../images/png/bg-header.png');
+    background-size: cover;
+    height: 965px;
+}
+
+.header .naviguation
+{
+    padding-top: 13px;
+    padding-left: 18px;
+}
+
+.header .naviguation .ring
+{
+    margin-bottom: 36px;
+}
+
+.header .naviguation .link
+{
+    display: flex;
+    height: 278px;
+    width: 58px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-left: 22px;
+}
+
+.header .link a
+{   
+    text-decoration: none;
+    color: rgb(180, 168, 98);
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 29px;
+}
+
+.header .arcane
+{
+    position: absolute;
+    transform: translate(1183px,-400px); 
+    will-change: transform;
+}    
+
+.header .title
+{
+    margin: 0;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 58px;
+    line-height: 66px;
+    text-align: center;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+    margin-top: 284px;
+    margin-left: 225px;
+    width: 990px;
+}
+
+/* SECTION 1 */
+
+.section-1
+{
+    height: 235px;
+    margin: 0;
+    background-color: #000;    
+}
+
+.section-1 .text
+{
+    display: inline-block;
+    margin: 0 225px;
+    margin-top: 40px;
+    color: #ffff;
+    text-align: center;
+    vertical-align: top;
+    line-height: 43px;
+    font-size: 24px;
+    border: 1,3px solid #00000033;
+    box-shadow: 0px 0px 4px 0px #00000066;
+}
+
+/* SECTION 2 */
+
+.section-2
+{
+    margin: 0;
+    background: black;
+}
+
+.section-2 .title
+{
+    margin: 0;
+}
+
+/* presentation */
+.section-2 .presentation
+{
+    position: relative;
+    background-image: url('../images/png/presentation.png');
+    background-size: cover;
+    height: 991px;    
+}
+
+.section-2 .button
+{
+    position: relative;
+    width: 302px;
+    height: 272px;
+    display: inline-block;       
+}
+
+.section-2 .button *
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;      
+}
+
+.section-2 .button .title
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.section-2 .button .passive
+{
+    position: absolute;        
+}
+
+.section-2 .button.description
+{
+    transform: translate(140px, 424px);
+    will-change: transform;
+}
+
+.section-2 .button.caracteristic
+{
+    transform: translate(80px, 243px);
+    will-change: transform;            
+}
+
+.section-2 .button.ability
+{
+    transform: translate(75px, 235px);
+    will-change: transform;           
+}
+
+.section-2 .button.other-fact
+{
+    transform: translate(-10px, 432px);
+    will-change: transform;            
+}
+
+/* slides */
+.section-2 .slides
+{
+    height: 2000px;
+    position: relative;
+    
+}
+
+.section-2 .slides .content
+{
+    height: 2000px;
+    position: absolute;
+    top:0;
+    left: 0;
+    opacity: 0;
+    margin: 256px 200px 212px 216px;
+}
+
+
+.section-2 .slides .content.visible
+{
+    opacity: 1; 
+}
+
+.section-2 .slides .content.description .title
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px       
+}
+
+.section-2 .slides .content.description .text
+{
+    font-size: 48px;
+    line-height: 56px;
+    margin:  50px 0 120px 0;    
+}
+
+.section-2 .slides .content.caracteristic .title
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px       
+}
+
+.section-2 .slides .content.caracteristic .text
+{
+    font-size: 48px;
+    line-height: 56px;
+    margin:  50px 0 120px 0;    
+}
+
+.section-2 .slides .content.ability .title
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px       
+}
+
+.section-2 .slides .content.ability .text
+{
+    font-size: 48px;
+    line-height: 56px;
+    margin:  50px 0 120px 0;    
+}
+
+/* histoire */
+.section-2 .histoire
+{
+    position: relative;
+    background-image: url('../images/png/histoire.png');
+    background-size: cover;
+    height: 995px;     
+}
+
+
+.section-2 .button.early
+{
+    transform: translate(401px, 429px);
+    will-change: transform;
+}
+
+.section-2 .button.comtemporary
+{
+    transform: translate(418px, 429px);
+    will-change: transform;            
+}
+
+.section-2 .button.recents
+{
+    transform: translate(370px, 260px);
+    will-change: transform;           
+}
+
+/* relation */
+
+/* art gallery */
+.gallery
+{
+    position: relative;
+    height: 1500px;
+    background-image: url('../images/png/art/melandjayce.png');
+    background-size: cover;
+}
+
+.gallery .head
+{
+    position: relative;    
+}
+
+.gallery .head .title
+{
+    margin: 0%;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 70px;
+    text-align: center;
+    color: #ffffff;   
+}
+
+.gallery .head .ring
+{
+    margin-top: 20px;
+    margin-left: 46%;   
+}
+
+.gallery .art
+{
+    position: absolute;
+}
+
+.gallery .art.gauche
+{
+    display: inline-block;
+    top: 180px;
+    left: 748px;
+    
+}
+
+.gallery .art.droite
+{
+    display: inline-block;
+    top: 180px;
+    left: 70px;
+}
+
+.gallery .art.arrière
+{
+    display: inline-block;
+    top: 719px;
+    left: 270px;
+}
+
+.gallery .glass
+{
+    position: absolute;
+}
+
+.gallery .glass.glass-top
+{
+    top: 0;
+}
+
+.gallery .glass.glass-bottom
+{
+    bottom: 0;
+    
+}
+
+/* footer */
+footer
+{
+    height: 300px;
+    width: 1440px;
+    margin: 0 auto;
+    background-image: url('../images/png/footer.png') ;
+}
+
+footer p
+{
+    margin-top: 210px ;
+    margin-left: 400px ;
+}

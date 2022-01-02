@@ -1,0 +1,135 @@
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 240px;
+    margin: 20px;
+    background: lightgray;
+    perspective: 800px;
+}
+
+.container *
+{
+    transform-style: preserve-3d;
+}
+
+.element
+{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: orange;
+}
+
+.transition
+{
+    position: relative;
+    transform: translateX(0px);
+    /* left: 0; */
+
+    transition-property: transform;
+    transition-duration: 3s;
+    /* transition-delay: 2s; */
+    transition-timing-function: cubic-bezier(0.6, 0.13, 0.41, 1.12);
+    will-change: transform;
+}
+
+.container:hover .transition
+{
+    transform: translateX(500px);
+}
+
+.animation
+{
+    animation-name: my-super-animation;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    /* animation-delay: 3s; */
+    animation-iteration-count: infinite;
+    /* animation-direction: alternate-reverse; */
+    /* animation-fill-mode: both; */
+    animation-play-state: paused;
+}
+
+.animation:hover
+{
+    animation-play-state: running;
+}
+
+@keyframes my-super-animation
+{
+    0%   { left: 0px;   height: 100px; background: orange; }
+    50%  { left: 400px; height: 300px; background: cyan; }
+    100% { left: 200px; height: 200px; background: red; }
+}
+
+.equalizer
+{
+    display: flex;
+    width: 200px;
+    height: 100px;
+}
+
+.equalizer .bar
+{
+    --duration: 2s;
+
+    flex-grow: 1;
+    background: #ffffff;
+    height: 100%;
+    margin: 0 2px;
+    
+    animation-name: equalizer-bar;
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.equalizer .bar-0 { animation-delay: calc(0.3 * var(--duration)); }
+.equalizer .bar-1 { animation-delay: calc(0.2 * var(--duration)); }
+.equalizer .bar-2 { animation-delay: calc(0.8 * var(--duration)); }
+.equalizer .bar-3 { animation-delay: calc(0.0 * var(--duration)); }
+.equalizer .bar-4 { animation-delay: calc(0.7 * var(--duration)); }
+.equalizer .bar-5 { animation-delay: calc(0.4 * var(--duration)); }
+.equalizer .bar-6 { animation-delay: calc(0.9 * var(--duration)); }
+.equalizer .bar-7 { animation-delay: calc(0.1 * var(--duration)); }
+.equalizer .bar-8 { animation-delay: calc(0.6 * var(--duration)); }
+.equalizer .bar-9 { animation-delay: calc(0.5 * var(--duration)); }
+
+@keyframes equalizer-bar
+{
+    0%   { transform: scaleY(0.1); }
+    2%   { transform: scaleY(1); }
+    100% { transform: scaleY(0.1); }
+}
+
+.menu
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: #eeeeee;
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.2, 0, 0.1, 1);
+    will-change: transform;
+}
+
+.menu::after
+{
+    content: 'menu';
+    position: absolute;
+    top: 20px;
+    left: 100%;
+    text-transform: uppercase;
+    padding: 20px;
+    background: #dddddd;
+}
+
+.menu:hover
+{
+    transform: translateX(0);
+}

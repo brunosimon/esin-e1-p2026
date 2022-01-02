@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 10 - JS - Variables</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 10</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="https://bruno-simon.com/esin/e1-p2026/">https://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>JavaScript</h1>
+                    <h2>Variables</h2>
+                </section>
+
+                <section>
+                    <p>L'un des composants principaux de tous les languages est la variable</p>
+                    <p>La variable permet d'enregistrer des valeurs (score, nom de l'utilisateur, nombre de vie restantes, est-ce que le produit est déjà dans le panier, etc.)</p>
+                    <p>Elles fonctionnent comme des boîtes, chacun ayant un nom et contenant quelque chose</p>
+                </section>
+
+                <section>
+                    <p>Dans les exemples suivant, nous allons utiliser les termes <span class="u">foo</span> et <span class="u">bar</span></p>
+                    <p>Ces termes ne designent rien.<br>On peut les comparer à <span class="u">truc</span> et <span class="u">bidule</span></p>
+                    <p><a href="https://en.wikipedia.org/wiki/Foobar" target="_blank">Wiki 1</a></p>
+                    <p><a href="https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique" target="_blank">Wiki 2</a></p>
+                </section>
+
+                <section>
+                    <h2>Déclarer une variable</h2>
+                    <p>Il existe deux méthodes pour déclarer les variables</p>
+                    <ul>
+                        <li>Avec <span class="hl">var</span> —à l'ancienne</li>
+                        <li>Avec <span class="hl">const</span> et <span class="hl">let</span>—plus flexible et plus performant</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Ancienne méthode</h2>
+                    <p>Pour créer une variable, nous commencons par écrire <span class="hl">var</span> suivi d'un <span class="hl">=</span> et de la valeur</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+var foo = 'bar';
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Nouvelle méthode</h2>
+                    <p>Depuis l'ES6, on utilise les termes <span class="hl">const</span> et <span class="hl">let</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = 'bar';
+let toto = 'tata';
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <ul>
+                        <li><span class="hl">const</span> permet de créer une variable qui ne changera pas (une erreur se produit si on tente de modifier la variable) ce qui permet au navigateur d'optimiser la gestion de la mémoire</li>
+                        <li><span class="hl">let</span> permet de créer une variable qui peut changer</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Nous allons donc toujours utiliser <span class="hl">const</span> a moins d'avoir l'intension de changer sa valeur par la suite</p>
+                    <p>Cela optimise la gestion de la mémoire</p>
+                    <p>Il n'est aujourd'hui plus nécessaire d'utiliser <span class="hl">var</span></p>
+                </section>
+
+                <section>
+                    <p>☝️ Le fait de mettre une valeur dans une variable s'appelle une <span class="u">assignation</span></p>
+                </section>
+
+                <section>
+                    <h2>Naming convention</h2>
+                </section>
+                
+                <section>
+                    <p>Le choix du nom de variable et la façon de l'écrire s'appelle <span class="hl">naming convention</span> (convention de nommage)</p>
+                    <p>On parle aussi de nomenclature ou de casse</p>
+                </section>
+
+                <section>
+                    <p>Si une variable se compose de plusieurs mots (ex: <span class="u">foo</span> et <span class="u">bar</span>) il existe plusieurs façons de séparer ces mots</p>
+                    <p>Les plus connues en JS sont :</p>
+                    <table class="visible">
+                        <tr>
+                            <td>camel</td>
+                            <td>loremIpsumDolores</td>
+                            <td>pour les variables</td>
+                        </tr>
+                        <tr>
+                            <td>pascal</td>
+                            <td>LoremIpsumDolores</td>
+                            <td>pour les classes</td>
+                        </tr>
+                        <tr>
+                            <td>snake ou underscore</td>
+                            <td>lorem_ipsum_dolores</td>
+                            <td>pour les variables</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Bien 
+const foo_bar = 'lorem ipsum'; // Underscore (underscore entre chaque mot, aucune majuscule)
+const fooBar  = 'lorem ipsum'; // CamelCase ou LowerCamelCase (tout à la suite, majuscule à chaque mot sauf premier)
+const FooBar  = 'lorem ipsum'; // PascalCase ou UpperCamelCase (tout à la suite, majuscule à chaque mot)
+
+// Éviter
+const foobar  = 'lorem ipsum';
+const FOOBAR  = 'lorem ipsum'; // Utilisé pour les variables globales tout de même
+
+// Pas bien
+const foo-bar = 'lorem ipsum'; // Ne fonctionne pas
+const fO_bAR  = 'lorem ipsum';
+const foo bar = 'lorem ipsum'; // Ne fonctionne pas
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Quelques autres naming conventions :</p>
+                    <ul>
+                    <table class="visible">
+                        <tr>
+                            <td>title snake</td>
+                            <td>Lorem_Ipsum_Dolors</td>
+                        </tr>
+                        <tr>
+                            <td>screaming snake</td>
+                            <td>LOREM_IPSUM_DOLORS</td>
+                        </tr>
+                        <tr>
+                            <td>dash</td>
+                            <td>lorem-ipsum-dolors</td>
+                        </tr>
+                        <tr>
+                            <td>train</td>
+                            <td>Lorem-Ipsum-Dolors</td>
+                        </tr>
+                        <tr>
+                            <td>space</td>
+                            <td>lorem ipsum dolors</td>
+                        </tr>
+                        <tr>
+                            <td>title</td>
+                            <td>Lorem Ipsum Dolors</td>
+                        </tr>
+                        <tr>
+                            <td>dot</td>
+                            <td>lorem.ipsum.dolors</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <p>Quelques autres naming conventions :</p>
+                    <ul>
+                    <table class="visible">
+                        <tr>
+                            <td>slash</td>
+                            <td>lorem/ipsum/dolors</td>
+                        </tr>
+                        <tr>
+                            <td>backslash</td>
+                            <td>lorem\ipsum\dolors</td>
+                        </tr>
+                        <tr>
+                            <td>lower</td>
+                            <td>loremipsumdolors</td>
+                        </tr>
+                        <tr>
+                            <td>upper</td>
+                            <td>LOREMIPSUMDOLORS</td>
+                        </tr>
+                        <tr>
+                            <td>studlycaps</td>
+                            <td>LOremIPsUmDolORs</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <p>En JS, la convention veut qu'on utilise plutôt le <span class="u">camelCase</span></p>
+                </section>
+
+                <section>
+                    <ul>
+                        <li class="fragment">Choisissez bien le nom de votre variable</li>
+                        <li class="fragment">Il doit en dire suffisamment sans être trop long</li>
+                        <li class="fragment">Préférez l'anglais</li>
+                        <li class="fragment">Évitez les mots clés réservés :<br />var, const, let, class, default, if, do, for, function, ...</li>
+                        <li class="fragment">Soyez constant</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Jusqu'à présent, pour afficher le contenu d'une variable, nous avons utilisé <span class="hl">alert()</span>, mais il existe une autre méthode plus pratique appelée <span class="hl">console.log()</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+console.log(fooBar);
+                        </code></pre>
+                    </div>
+                    <p class="fragment"><span class="hl">console.log()</span> est utilisé pour aider le développeur. Il convient de les supprimer du code une fois le développement terminé.</p>
+                </section>
+
+                <section>
+                    <p>Pour afficher les résultats de la console de Chrome, il suffit d'aller dans <span class="u">Outils de développement</span></p>
+                    <p><img src="src/img/console-1.png" alt="" width="500"></p>
+                    <p>Puis dans l'onglet <span class="u">console</span></p>
+                    <p><img src="src/img/inspecteur-console.png" alt=""></p>
+                </section>
+
+                <!-- MULTIPLE VARIABLES -->
+                <section>
+                    <p>Il est possible de déclarer plusieurs variable en même temps en séparant les assignations par des <span class="hl">,</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = 'foo';
+const bar = 'bar';
+
+// Devient
+const foo = 'foo', bar = 'bar';
+
+// Ou
+const foo = 'foo',
+      bar = 'bar';
+                        </code></pre>
+                    </div>
+                </section>
+
+                <!-- SEMICOLON -->
+                <section>
+                    <h2>Point virgule</h2>
+                </section>
+
+                <section>
+                    <p>Jusqu'à présent, nous utilisions <span class="hl">;</span> pour indiquer la fin d'une instruction</p>
+                    <p>Depuis plusieurs années, le <span class="hl">;</span> ne sert plus à rien et le navigateur n'aura aucune difficulté à interpréter le code sans</p>
+                    <p>
+                        Certaines personnes et certaines entreprises telle que Google, continuent de l'utiliser afin de palier à des micro bugs que peut provoquer leur absence
+                        <br>
+                        <a href="https://google.github.io/styleguide/javascriptguide.xml?showone=Semicolons#Semicolons">Google guidelines</a>
+                    </p>
+                </section>
+
+                <!-- VARIABLES TYPES -->
+                <section>
+                    <h2>Les types de variables</h2>
+                </section>
+
+                <section>
+                    <p>Jusqu'ici, nous avons stocké une valeur de type <span class="hl">string</span> ou <span class="hl">chaîne de caractères</span> en français</p>
+                    <p>Il existe plusieurs types de variables</p>
+                </section>
+
+                <section>
+                    <p><span class="hl">number</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = 1337
+const bar = 0.5
+
+console.log(foo)
+                        </code></pre>
+                    </div>
+                    <p>Contrairement à d'autres languages, il n'y a pas de distinction entre <span class="u">float</span> et <span class="u">integer</span></p>
+                </section>
+
+                <section>
+                    <p><span class="hl">string</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = 'coucou'
+
+console.log(foo)
+                        </code></pre>
+                    </div>
+                    <p>Il n'y a pas de différence entre <span class="hl">'</span> et <span class="hl">"</span></p>
+                </section>
+
+                <section>
+                    <p><span class="hl">boolean</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = true
+const bar = false
+
+console.log(foo)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p><span class="hl">array</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = ['toto', 1337, true]
+
+foo.push('hey')
+
+console.log(foo)
+console.log(foo[1])
+console.log(foo.length)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p><span class="hl">object</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = {
+    lorem: 'ipsum',
+    toto: 1337,
+    test: true
+}
+
+foo.hoy = 'hey'
+
+console.log(foo)
+console.log(foo.toto)
+console.log(foo['toto'])
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Il existe d'autres types de variables plus complexe que nous aborderons plus tard</p>
+                    <ul>
+                        <li>function</li>
+                        <li>null</li>
+                        <li>undefined</li>
+                        <li>Date</li>
+                        <li>DOMElement</li>
+                        <li>regex</li>
+                        <li>...</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p><span class="hl">typeof</span> permet de connaître le type d'une variable</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const fooBar = 'lorem ipsum'
+
+console.log(typeof(fooBar)) // "string"
+console.log(typeof fooBar)  // "string"
+                        </code></pre>
+                    </div>
+                </section>
+                
+
+                <section>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+typeof 1337          // "number"
+typeof 0.5           // "number"
+typeof 'lorem ipsum' // "string"
+typeof function(){}  // "function"
+typeof true          // "boolean"
+
+typeof {}            // "object"
+typeof []            // "object"
+typeof null          // "object"
+typeof /abcd/        // "object"
+typeof document.createElement('div') // 'object'
+                        </code></pre>
+                    </div>
+                    <p class="fragment"><span class="hl">typeof</span> ne renvoie pas toujours la valeur attendue</p>
+                </section>
+                
+                <section>
+                    <p>Une autre méthode est <span class="hl">instanceof</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+{} instanceof Object       // true
+[] instanceof Array        // true
+new Date() instanceof Date // true
+/abcd/ instanceof RegExp   // true
+                        </code></pre>
+                    </div>
+                    <p class="fragment">Pas mal, mais pas très pratique</p>
+                </section>
+
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+/* @font-face
+{
+    font-family: 'myFont';
+    src: url('./fonts/all-formats/opensans-regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'myFont';
+    src: url('./fonts/all-formats/opensans-bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'myFont';
+    src: url('./fonts/all-formats/opensans-regular-italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face
+{
+    font-family: 'myFont';
+    src: url('./fonts/all-formats/opensans-bold-italic.ttf');
+    font-weight: 700;
+    font-style: italic;
+} */
+
+body
+{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.smoothed
+{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

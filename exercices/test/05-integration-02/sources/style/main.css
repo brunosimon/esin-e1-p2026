@@ -1,0 +1,224 @@
+/* Header */
+body
+{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+a
+{
+    color: inherit;
+    text-decoration: none;
+}
+
+.wrapper
+{
+    width: 1070px;
+    margin: 0 auto;
+}
+
+.start
+{
+    display: inline-block;
+    background: #FF7143;
+    color: #ffffff;
+    padding: 20px 60px;
+    border-radius: 10px;
+}
+
+/* Header */
+.header
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+
+.header .navigation a
+{
+    position: relative;
+    padding: 22px;
+}
+
+.header .navigation a.active:after
+{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 22px;
+    right: 22px;
+    height: 2px;
+    background: #5454D4;
+}
+
+/* Services */
+.services
+{
+    margin-bottom: 120px;
+}
+
+.services .service
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.services .service .content
+{
+    width: 50%;
+}
+
+.services .service .title
+{
+    font-size: 50px;
+}
+
+.services .service .description
+{
+    line-height: 1.6em;
+    font-size: 20px;
+    font-weight: 200;
+    color: #696871;
+}
+
+.services .service .more
+{
+    color: #5454D4;
+}
+
+.services .service:first-child .title
+{
+    font-size: 80px;
+}
+
+.services .service:first-child .description
+{
+    margin-bottom: 2em;
+}
+
+.services .service:first-child .start
+{
+    background: #5454D4;
+}
+
+/* Sub services */
+.sub-services
+{
+    display: flex;
+    margin-bottom: 120px;
+}
+
+.sub-services .sub-service
+{
+    text-align: center;
+}
+
+.sub-services .sub-service .title
+{
+    font-size: 24px;
+}
+
+.sub-services .sub-service .description
+{
+    line-height: 1.6em;
+    font-weight: 200;
+    color: #696871;
+}
+
+/* Plans */
+.plans
+{
+    margin-bottom: 120px;
+}
+
+.plans .title
+{
+    margin-bottom: 1em;
+    font-weight: 700;
+    font-size: 60px;
+}
+
+.plans .plans-items
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plans .plan
+{
+    flex-grow: 1;
+    padding: 50px 20px 20px 20px;
+    border-radius: 10px;
+    text-align: center;
+    background: #eae9f2;
+}
+
+.plans .plan .label
+{
+    font-weight: 200;
+    margin-bottom: 20px;
+    color: #696871;
+}
+
+
+.plans .plan .price
+{
+    margin-bottom: 30px;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.plans .plan .price small
+{
+    font-size: 28px;
+}
+
+.plans .plan ul
+{
+    margin-bottom: 40px;
+    font-weight: 200;
+    list-style: none;
+    padding: 0;
+}
+
+.plans .plan li
+{
+    color: #696871;
+    margin-bottom: 20px;
+}
+
+.plans .plan .start
+{
+    display: block;
+    background: #ffffff;
+    color: #5454D4;
+}
+
+.plans .plan:nth-child(2)
+{
+    background: blue;
+    flex-grow: 1.3;
+    margin: 20px;
+    padding: 70px 20px 40px 20px;
+    background: #ff7143;
+    color: #ffffff;
+}
+
+.plans .plan:nth-child(2) .label,
+.plans .plan:nth-child(2) li
+{
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+.plans .plan:nth-child(2)  .start
+{
+    background: #9F3919;
+    color: #ffffff;
+}

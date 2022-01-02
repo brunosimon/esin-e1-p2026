@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 13 - JS - Boucles</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 13</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="https://bruno-simon.com/esin/e1-p2026/">https://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>JavaScript</h1>
+                    <h2>Boucles</h2>
+                </section>
+
+                <section>
+                    <p>Les boucles permettent d'accomplir une action un certain nombre de fois ou alors de parcourir un tableau en accomplissant une action pour chacun des éléments</p>
+                    <p>La plus utilisée en JS est le <span class="hl">for</span></p>
+                    <p>(<span class="hl">while</span> et <span class="hl">do while</span> sont des boucles que nous ne verrons pas dans ce cours)</p>
+                </section>
+
+                <section>
+                    <h2>For classique</h2>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+for(let i = 0; i &lt; 10; i++)
+{
+    console.log(i)
+}
+                        </code></pre>
+                    </div>
+                    <ul>
+                        <li><span class="hl">let i = 0</span> correspond à l'initialisation</li>
+                        <li><span class="hl">i &lt; 10</span> correspond à la condition</li>
+                        <li><span class="hl">i++</span> est executé à chaque boucle</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Comme pour le <span class="hl">if</span> les accolades sont inutiles s'il n'y a qu'une seule instruction</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+for(let i = 0; i &lt; 10; i++)
+    console.log(i)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>En sens inverse</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+for(let i = 9; i &gt;= 0; i--)
+    console.log(i)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Deux par deux</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+for(let i = 0; i &lt; 10; i += 2)
+    console.log(i)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Boucler sur un tableau</h2>
+                </section>
+
+                <section>
+                    <p>Nous allons partir d'un tableau</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const familyMembers = ['toto', 'tata', 'titi', 'tutu']
+                        </code></pre>
+                    </div>
+                    <p>Et tenter de faire un <span class="hl">console.log</span> de chacune de ses valeurs</p>
+                </section>
+
+                <section>
+                    <p>☝️ pour récupérer la longueur d'un tableau, il suffit d'appeler sa propriété <span class="hl">length</span> comme s'il s'agissait d'un objet</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+console.log(familyMembers.length)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Avec un <span class="hl">for</span> classique en utilisant sa longueur</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const familyMembers = ['toto', 'tata', 'titi', 'tutu']
+
+for(let i = 0; i &lt; familyMembers.length; i++)
+{
+    const member = familyMembers[i]
+    console.log(member)
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Avec un <span class="hl">for ... in ...</span> qui renvoie les clés du tableau</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const familyMembers = ['toto', 'tata', 'titi', 'tutu']
+
+for(const key in familyMembers)
+{
+    const member = familyMembers[key]
+    console.log(member)
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Avec un <span class="hl">for ... of ...</span> qui renvoie directement les valeurs du tableau (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of#Browser_compatibility" target="_blank">ne fonctionne pas sur Internet Explorer</a>)</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const familyMembers = ['toto', 'tata', 'titi', 'tutu']
+
+for(const member of familyMembers)
+{
+    console.log(member)
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Avec la méthode <span class="hl">forEach()</span> directement sur le tableau</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const familyMembers = ['toto', 'tata', 'titi', 'tutu']
+
+familyMembers.forEach(function(member, key) {
+    console.log(key)
+    console.log(member)
+})
+                        </code></pre>
+                    </div>
+                    <p>☝️ cette méthode implique des notions que nous n'avons pas encore étudiés; nous n'allons donc pas nous attarder dessus</p>
+                </section>
+
+                <section>
+                    <p>☝️ Boucler sur un tableau n'est pas évident quand on débute, mais c'est un élément très important que l'on utilisera beaucoup par la suite</p>
+                </section>
+ 
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>

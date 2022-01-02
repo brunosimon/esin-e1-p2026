@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 19 - JS - WTF</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 19</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="https://bruno-simon.com/esin/e1-p2026/">https://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>JavaScript</h1>
+                    <h2>WTF</h2>
+                </section>
+
+                <section>
+                    <p>JavaScript est loin d'être parfait</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+console.log(9999999999999999)
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+console.log(0.1 + 0.2)
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+console.log([2, 4, 7, 1, 3].sort())
+console.log([40, 100, 1, 5, 25].sort())
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+console.log(10 / 'coucou')
+console.log(typeof NaN)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p><a href="http://wtfjs.com/" target="_blank">WtfJS.com</a></p>
+                </section>
+ 
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>

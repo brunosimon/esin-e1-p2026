@@ -1,0 +1,246 @@
+@font-face{
+    font-family: 'Friz Quadrata';
+    src: url(../fonts/Friz\ Quadrata\ Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face{
+    font-family: 'Arcane Nine';
+    src: url(../fonts/Arcane\ Nine.otf);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body{
+    margin: 0;
+    width: auto;
+    background: #110D0F;
+    font-family: 'Arcane Nine';
+    overflow-x: hidden;
+    color: #BA8A63;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container .head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 48vw;
+}
+
+.container .head .glass{
+    position: absolute;
+    width: 100%;
+    background: url(../images/background0.png) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+}
+
+.head .glass .top{
+    width: 100%;
+}
+
+.head .glass .bot{
+    width: 100%;
+}
+
+.head .glass .background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.container .head .header{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 112px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+    padding-right: 40px;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    box-sizing: border-box;
+}
+
+.head .header .image{
+    z-index: 3;
+}
+
+.container .head .shadow-1{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.container .head .shadow-2{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(360deg, #110D0F 43.29%, rgba(17, 13, 15, 0) 71.92%);
+}
+
+.navigation{
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 880px;
+}
+
+.navigation .link{
+    font-size: 24px;
+    color: #BA8A63;
+}
+
+.navigation .link:hover{
+    text-decoration: underline;
+}
+
+.head .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.head .title-1{
+    z-index: 4;
+    width: 100%;
+    text-align: center;
+    font-size: 96px;
+    background-image: linear-gradient(180.48deg, #0A6D0F 0.38%, #00FF10 61.98%, #0A6D0F 124.88%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.head .radial-1{
+    z-index: 3;
+    position: absolute;
+    width: 660px;
+    height: 312px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(0, 255, 16, 0.455) 0%, rgba(0, 255, 16, 0) 100%);
+}
+
+.head .radial-2{
+    z-index: 2;
+    position: absolute;
+    width: 880px;
+    height: 415px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* main-1 */
+.main-1{
+    padding-top: 50px;
+}
+
+.arcane .singed-personnal{
+    background: url(../images/contour.svg) no-repeat , url(../images/background1.png) no-repeat;
+    width: 555px;
+    height: 320px;
+}
+
+.arcane .singed-personnal .title{
+    display: inline-block;
+}
+
+.arcane .singed-personnal .title-1{
+    display: inline-block;
+}
+
+.arcane .singed-personnal .title::before{
+    content: '';
+    width: 1px;
+    height: 32px;
+    background-color: #BA8A63;
+}
+
+.arcane .singed-personnal .text{
+    padding-left: 30px;
+}
+
+.arcane .singed-personnal .right{
+    padding-right: 30px;
+    text-align: right;
+}
+
+.singed-pic{
+    position: absolute;
+    top: 810px;
+    right: 130px;
+    background-image: url(../images/contour.svg);
+}
+
+.story{
+    padding: 0 290px;
+    text-align: center;
+}
+
+.fiole{
+    position: relative;
+    left: calc(50% - 636px / 2);
+}
+
+.img-scroll{
+    width: 100%;
+}
+
+.lol{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.items .item{
+    cursor: pointer;
+}
+
+.items .item-1 .info{
+    opacity: 0;
+}
+
+.stats{
+    display: flex;
+    padding-bottom: 100px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.abilities{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer{
+    /* position:fixed; */
+    display: flex;
+    /* padding-top: 100px; */
+    align-items: center;
+    justify-content: center;
+}

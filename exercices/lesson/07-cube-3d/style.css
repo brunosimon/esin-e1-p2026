@@ -1,0 +1,81 @@
+.cube
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    perspective: 800px;
+}
+
+.cube *
+{
+    transform-style: preserve-3d;
+}
+
+.cube .face
+{
+    --size: 400px;
+    position: absolute;
+    top: calc(var(--size) * (-0.5));
+    left: calc(var(--size) * (-0.5));
+    width: var(--size);
+    height: var(--size);
+    background-size: cover;
+    image-rendering: pixelated;
+}
+
+.cube.beehive .face.x-neg { background-image: url('textures/beehive_side.png'); }
+.cube.beehive .face.x-pos { background-image: url('textures/beehive_side.png'); }
+.cube.beehive .face.y-neg { background-image: url('textures/beehive_end.png'); }
+.cube.beehive .face.y-pos { background-image: url('textures/beehive_end.png'); }
+.cube.beehive .face.z-neg { background-image: url('textures/beehive_front.png'); }
+.cube.beehive .face.z-pos { background-image: url('textures/beehive_front_honey.png'); }
+
+.cube.glowstone .face { background-image: url('textures/glowstone.png'); }
+
+.cube.redstone-lamp .face { background-image: url('textures/redstone_lamp.png'); }
+.cube.redstone-lamp:hover .face { background-image: url('textures/redstone_lamp_on.png'); }
+
+.cube .face.x-neg { transform: rotateY(-90deg) translateZ(200px); }
+.cube .face.x-pos { transform: rotateY(90deg)  translateZ(200px); }
+.cube .face.z-neg { transform: rotateY(180deg) translateZ(200px); }
+.cube .face.z-pos { transform: rotateY(0deg)   translateZ(200px); }
+.cube .face.y-neg { transform: rotateX(90deg)  translateZ(200px); }
+.cube .face.y-pos { transform: rotateX(-90deg) translateZ(200px); }
+
+.cube .shadow
+{
+    --size: 400px;
+    position: absolute;
+    top: calc(var(--size) * (-0.5));
+    left: calc(var(--size) * (-0.5));
+    width: var(--size);
+    height: var(--size);
+    transform: rotateX(-90deg) translateZ(300px);
+    background: black;
+    opacity: 0.3;
+    filter: blur(50px);
+}
+
+.cube .pivot-y
+{
+    animation: cube-rotation-y 8s infinite linear;
+}
+
+@keyframes cube-rotation-y
+{
+    0%   { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.cube .pivot-x
+{
+    animation: cube-rotation-x 11s infinite;
+}
+
+@keyframes cube-rotation-x
+{
+    0%   { transform: rotateX(0deg); }
+    25%  { transform: rotateX(-45deg); }
+    75%  { transform: rotateX(45deg); }
+    100% { transform: rotateX(0deg); }
+}

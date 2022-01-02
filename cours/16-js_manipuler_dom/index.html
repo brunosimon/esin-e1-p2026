@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 16 - JS - Manipuler DOM</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 16</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="https://bruno-simon.com/esin/e1-p2026/">https://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>JavaScript</h1>
+                    <h2>Manipuler le DOM</h2>
+                </section>
+
+                <section>
+                    <p>
+                        En JS, il est possible de manipuler le DOM.
+                        <br>Celui-ci se compose d'éléments appelés <span class="hl">DOM Element</span> ou <span class="hl">Node</span>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Récupérer ces éléments</h2>
+                    <p>
+                        Nous allons voir dans un premier temps comment récupérer ces éléments pour les stocker dans des variables afin de les manipuler par la suite
+                    </p>
+                    <p>
+                        La page entière est considérée comme un DOM Element. On y accède en JS avec la variable <span class="hl">document</span>
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">getElementById</h2>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = document.getElementById('hey')
+
+console.log(foo)
+                        </code></pre>
+                    </div>
+                    <ul>
+                        <li>Renvoie un élément ayant l'ID <span class="u">hey</span></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">getElementsByClassName</h2>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = document.getElementsByClassName('hey')
+
+console.log(foo)
+                        </code></pre>
+                    </div>
+                    <ul>
+                        <li>Renvoie un tableau d'éléments ayant la classe <span class="u">hey</span></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">getElementsByTagName</h2>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = document.getElementsByTagName('section')
+
+console.log(foo)
+                        </code></pre>
+                    </div>
+                    <ul>
+                        <li>Renvoie un tableau d'éléments dont le tag est <span class="u">section</span></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">querySelector</h2>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = document.querySelector('.toto')
+
+console.log(foo)
+                        </code></pre>
+                    </div>
+                    <ul>
+                        <li>Renvoie le premier élément ayant la classe <span class="u">toto</span></li>
+                        <li>Fonctionne avec un sélecteur comme en CSS</li>
+                        <li>IE8+</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">querySelectorAll</h2>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = document.querySelectorAll('.toto')
+
+console.log(foo)
+                        </code></pre>
+                    </div>
+                    <ul>
+                        <li>Similaire à <span class="hl">querySelector</span></li>
+                        <li>Renvoie un genre de tableau de tous les éléments ayant la classe <span class="u">toto</span></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>☝️ le tableau renvoyé n'est pas tout à fait un tableau</p>
+                    <p>Si on tente par exemple un <span class="hl">for ... in ...</span> dessus, on va se retrouver avec des clées non désirées</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = document.querySelectorAll('.toto')
+
+for(const key in foo)
+{
+    console.log(key)
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Alors qu'un <span class="hl">for ... of ...</span> va fonctionner</p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = document.querySelectorAll('.toto')
+
+for(const element of foo)
+{
+    console.log(element)
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Une bonne astuce consiste à transformer ce "genre de tableau" en un vrai tableau</p>
+                    <p>Pour cela, deux façons de faire</p>
+                    <p>Avec <span class="hl">Array.from()</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = document.querySelectorAll('p')
+const bar = Array.from(foo)
+                        </code></pre>
+                    </div>
+                    <p>Avec le <span class="hl">spread operator</span></p>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const foo = document.querySelectorAll('p')
+const bar = [...foo]
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p><span class="hl">querySelector</span> et <span class="hl">querySelectorAll</span> ont rendu obsolète les autres méthodes</p>
+                    <p>⚠️ N'utilisez que ces deux là dans un souci de simplicité</p>
+                </section>
+
+                <section>
+                    <h2>Manipuler l'élément</h2>
+                    <p>Une fois l'élément récupéré, il est possible de le modifier</p>
+                </section>
+
+                <section>
+                    <h3 class="no-text-transform">Attributs</h3>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Modifie l'attribut test (le créé s'il n'existe pas)
+foo.setAttribute('test', 'coucou')
+
+// Récupère l'attribut "test"
+console.log(foo.getAttribute('test'))
+
+// Supprime l'attribut "class"
+foo.removeAttribute('class')
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="no-text-transform">Style</h3>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Modifie le style
+foo.style.backgroundColor = 'green'
+foo.style.width = '200px'
+foo.style.height = '200px'
+foo.style.height = '200px'
+foo.style.webkitBorderRadius = '100px'
+foo.style.mozBorderRadius = '100px'
+foo.style.borderRadius = '100px'
+                        </code></pre>
+                    </div>
+                    <ul>
+                        <li>Les propriétés sont en <span class="hl">camelCase</span></li>
+                        <li>Bien préciser les unités</li>
+                        <li>Spécifier les préfixes si nécessaire</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="no-text-transform">Classes</h3>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Rajoute une classe
+foo.classList.add('toto')
+
+// Rajoute plusieurs classes
+foo.classList.add('lorem', 'ipsum')
+
+// Supprime une classe
+foo.classList.remove('lorem')
+
+// Demande si contient la classe
+console.log(foo.classList.contains('ipsum'))
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="no-text-transform">textContent</h3>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Remplace le contenu par "hey"
+foo.textContent = 'hey'
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="no-text-transform">innerHTML</h3>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Remplace le contenu par du HTML
+foo.innerHTML = '&lt;span&gt;hey&lt;/span&gt;'
+                        </code></pre>
+                    </div>
+                    <p>La différence avec <span class="hl">textContent</span> est la possibilité d'écrire du HTML qui sera interprété comme tel</p>
+                </section>
+
+                <section>
+                    <h3 class="no-text-transform">remove</h3>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Supprime du DOM
+foo.remove()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="no-text-transform">append</h3>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Place bar à la fin de l'élément foo
+foo.append(bar)
+                        </code></pre>
+                    </div>
+                    <p>⚠️ <span class="hl">append</span> est le successeur de <span class="hl">appendChild</span> et n'est pas supporté sur certains <a href="https://caniuse.com/mdn-api_element_append" target="_blank">vieux navigateurs</a></p>
+                </section>
+
+                <section>
+                    <h3 class="no-text-transform">prepend</h3>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Place bar au début de l'élément foo
+foo.prepend(bar)
+                        </code></pre>
+                    </div>
+                    <p>⚠️ <span class="hl">prepend</span> n'est pas supporté sur certains <a href="https://caniuse.com/mdn-api_element_prepend" target="_blank">vieux navigateurs</a></p>
+                </section>
+
+                <section>
+                    <h3>Créer un élément</h3>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+// Créé un span et stock dans la variable "toto"
+const toto = document.createElement('span')
+
+// Lui ajoute la class "toto"
+toto.classList.add('toto')
+
+// Lui ajoute du texte
+toto.textContent = 'Coucou, je suis toto'
+
+// Le rajoute au DOM dans l'élément foo
+foo.append(toto)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Input value</h3>
+                    <p>Il est possible de récupérer la valeur d'un input que ce soit un input text, un select, un textarea, etc.</p>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;input value="test" type="text" class="my-awesome-input"&gt;
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const input = document.querySelector('.my-awesome-input')
+console.log(input.value)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>⚠️</p>
+                    <p>Récupérer un élément dans la page demande pas mal de ressources pour le navigateur</p>
+                    <p>Il faut minimiser cette pratique autant que possible</p>
+                </section>
+
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>

@@ -1,0 +1,113 @@
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 240px;
+    margin: 20px;
+    background: lightgray;
+    perspective: 800px;
+}
+
+.container *
+{
+    transform-style: preserve-3d;
+}
+
+.element
+{
+    width: 200px;
+    height: 200px;
+    background: orange;
+}
+
+.element-1
+{
+    transform: scaleX(0.5);
+}
+
+.element-2
+{
+    /* transform: translate(-200px, -50px); */
+    transform: translateX(50%);
+}
+
+.element-3
+{
+    transform: rotate(3.14rad);
+}
+
+.element-4
+{
+    transform: skewX(45deg);
+}
+
+.element-5
+{
+    transform-origin: -50% -50%;
+    transform: rotate(45deg);
+}
+
+.element-6
+{
+    transform: translateX(200px) rotate(45deg);
+}
+
+.element-7
+{
+    transform: rotateY(75deg);
+}
+
+.element-8
+{
+    transform: translateZ(200px);
+}
+
+.element-9
+{
+    transform: scaleZ(3);
+}
+
+.element-10
+{
+    transform: rotateY(45deg);
+    backface-visibility: hidden;
+}
+
+.element-11
+{
+    transform: rotateY(45deg);
+}
+
+.element-12
+{
+    position: relative;
+    transform: rotateX(75deg);
+}
+
+.element-12 .inner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background: red;
+    transform: translateZ(40px);
+}
+
+.element-12 .super-inner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background: blue;
+    transform: translateZ(40px);
+}
+
+.element-13
+{
+    transform: matrix(1, 0.5, 0.5, 1, 0, 0);
+}

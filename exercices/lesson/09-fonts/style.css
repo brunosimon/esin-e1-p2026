@@ -1,0 +1,81 @@
+/* @font-face
+{
+    font-family: 'Open Sans';
+    src: url('fonts/all-formats/opensans-regular.woff2'),
+         url('fonts/all-formats/opensans-regular.woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+    font-display: swap;
+}
+
+@font-face
+{
+    font-family: 'Open Sans';
+    src: url('fonts/all-formats/opensans-bold.woff2'),
+         url('fonts/all-formats/opensans-bold.woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face
+{
+    font-family: 'Open Sans';
+    src: url('fonts/all-formats/opensans-regular-italic.woff2'),
+         url('fonts/all-formats/opensans-regular-italic.woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face
+{
+    font-family: 'Open Sans';
+    src: url('fonts/all-formats/opensans-bold-italic.woff2'),
+         url('fonts/all-formats/opensans-bold-italic.woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Queensila';
+    src: url('fonts/Queensila.woff2') format('woff2'),
+         url('fonts/Queensila.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+} */
+
+.smooth
+{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body
+{
+    font-family: 'Open Sans', Helvetica, Arial;
+}
+
+h1
+{
+    display: inline-block;
+    position: relative;
+    font-family: 'Queensila';
+    font-weight: 900;
+}
+
+h1::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: 5px solid orange;
+    border-right: 5px solid orange;
+}

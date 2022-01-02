@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 07 - Fonts</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div id="pagination"></div>
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 07</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="http://bruno-simon.com/esin/e1-p2026/">http://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Fonts</h1>
+                </section>
+
+                <section>
+                    <p>Lorsque l'on utilise une font, il faut s'assurer que tous les utilisateurs peuvent la voir</p>
+                    <p>Soit l'utilisateur possède déjà la font sur son ordinateur, soit il doit la télécharger en même temps que le site</p>
+                    <p>L'at-rule <span class="hl">@font-face</span> en CSS3 permet de faire cela</p>
+                </section>
+
+                <section>
+                    <h2>font-face</h2>
+                </section>
+
+                <section>
+                    <p>Compatibilité</p>
+                    <a href="http://caniuse.com/fontface" target="_blank">Can I use</a>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont.ttf);
+}
+
+p
+{
+    font-family: 'myFont';
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p><span class="hl">@font-face</span> peut contenir plusieurs propriétés qui vont permettre de définir le nom, le fichier source, le poids et le style de la police</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+/* Regular normal */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+                        </code></pre>
+                    </div>
+                    <p>Lorsque nous utiliserons cette font avec ce poids et ce style, c'est le fichier dans <span class="hl">src</span> qui sera utilisé</p>
+                </section>
+
+                <section>
+                    <h3>font-family</h3>
+                    <p>Le nom que vous désirez</p>
+                    <p>Il ne faut pas oublier les <span class="hl">'</span> ou <span class="hl">"</span> si le nom contient des espaces</p>
+                </section>
+
+                <section>
+                    <h3>src</h3>
+                    <p>Le fichier</p>
+                    <p>Comme pour <span class="hl">background-image: url(...);</span>, les quotes (simples ou doubles) ne sont pas obligatoires</p>
+                </section>
+
+                <section>
+                    <h3>font-weight</h3>
+                    <p>Les valeurs de <span class="hl">font-weight</span> peuvent être litérales ou numériques</p>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>100</li>
+                        <li>200</li>
+                        <li>300</li>
+                        <li>400 (normal)</li>
+                        <li>500</li>
+                        <li>600</li>
+                        <li>700 (bold)</li>
+                        <li>800</li>
+                        <li>900</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Si on demande un <span class="hl">font-weight</span> qui n'existe pas, le navigateur va tenter de grossir ou rétrécir la font</p>
+                    <p>Le résultat est souvent décevant avec une font déformée et floue</p>
+                </section>
+
+                <section>
+                    <p>Comme valeur litérale, il est aussi possible d'utiliser <span class="hl">bolder</span> et <span class="hl">lighter</span></p>
+                    <p>Dans l'idée, le navigateur tentera d'utiliser une font plus fine ou plus large si elle est disponible</p>
+                    <p>Dans la pratique, si le font-weight n'est pas disponible, le navigateur tentera à nouveau de grossir ou rétrécir la font</p>
+                </section>
+
+                <section>
+                    <h3>font-style</h3>
+                    <p>Le style de la font</p>
+                    <ul>
+                        <li>italic</li>
+                        <li>normal</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Comme pour le <span class="hl">font-weight</span>, si un format est absent, le navigateur va tenter de compenser en penchant la font</p>
+                    <p>Le résultat n'est pas très respectueux de la font</p>
+                </section>
+
+                <section>
+                    <h2>Supporter plusieurs variations</h2>
+                </section>
+
+                <section>
+                    <p>Il faut utiliser <span class="hl">@font-face</span> pour chaque version de la font que l'on souhaite utiliser sur le site (normal non-italic, normal italic, gras non-italic, gras italic, etc.)</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+/* Regular normal */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Regular italic */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-regular-italic.ttf);
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Bold normal */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-bold.ttf);
+    font-weight:700;
+    font-style: normal;
+}
+
+/* Bold italic */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-bold-italic.ttf);
+    font-weight:700;
+    font-style: italic;
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>font-display</h2>
+                </section>
+
+                <section>
+                    <p>La propriété <span class="hl">font-display</span> va permettre d'indiquer au navigateur le comportement à adopter le temps que la font se charge</p>
+                </section>
+
+                <section>
+                    <ul>
+                        <li class="fragment"><span class="hl">block</span> —text invisible le temps que la font se charge</li>
+                        <li class="fragment"><span class="hl">swap</span> —text invisible un très court instant au cas où la font se charge, puis affiche une font alternative le temps de charger la vraie font</li>
+                        <li class="fragment"><span class="hl">fallback</span> —comme swap, mais n'affiche pas la vraie font si trop de temps pour la charger</li>
+                        <li class="fragment"><span class="hl">optional</span> —comme swap, mais n'affiche pas la vraie font si pas chargée à la fin du court instant</li>
+                        <li class="fragment"><span class="hl">auto</span> —Laisser le navigateur choisir</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Pour un site accessible qui s'affiche vite, utilisez <span class="highlight">swap</span></p>
+                    <p>Pour un site que vous ne voulez pas voir sans les bonnes typos, utilisez <span class="hl">block</span></p>
+                    <p>Pour une font d'icônes, utilisez <span class="hl">block</span></p>
+                </section>
+
+                <section>
+                    <h2>Formats</h2>
+                </section>
+
+                <section>
+                    <p>Il existe plusieurs formats de font et les navigateurs ne les supportent pas tous</p>
+                    <p>
+                        <img src="src/img/fonts-formats.png" alt="" width="750">
+                    </p>
+                </section>
+
+                <section>
+                    <p>Le WOFF2 est le meilleur format et est supporté par presque tous les navigateurs</p>
+                    <p>Mais pour un support encore plus complet, nous pouvons fournir le format WOFF en alternative</p>
+                </section>
+
+                <section>
+                    <p>Pour une compatibilité maximale</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+/* Regular normal */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-regular.eot);
+    src: url(myfont-regular.eot?#iefix) format('embedded-opentype'),
+         url(myfont-regular.woff2) format('woff2'),
+         url(myfont-regular.woff) format('woff'),
+         url(myfont-regular.ttf) format('truetype'),
+         url(myfont-regular.svg#myFont) format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Regular italic */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-regular-italic.eot);
+    src: url(myfont-regular-italic.eot?#iefix) format('embedded-opentype'),
+         url(myfont-regular-italic.woff2) format('woff2'),
+         url(myfont-regular-italic.woff) format('woff'),
+         url(myfont-regular-italic.ttf) format('truetype'),
+         url(myfont-regular-italic.svg#myFont) format('svg');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Bold normal */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-bold.eot);
+    src: url(myfont-bold.eot?#iefix) format('embedded-opentype'),
+         url(myfont-bold.woff2) format('woff2'),
+         url(myfont-bold.woff) format('woff'),
+         url(myfont-bold.ttf) format('truetype'),
+         url(myfont-bold.svg#myFont) format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Bold italic */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-bold-italic.eot);
+    src: url(myfont-bold-italic.eot?#iefix) format('embedded-opentype'),
+         url(myfont-bold-italic.woff2) format('woff2'),
+         url(myfont-bold-italic.woff) format('woff'),
+         url(myfont-bold-italic.ttf) format('truetype'),
+         url(myfont-bold-italic.svg#myFont) format('svg');
+    font-weight: 700;
+    font-style: italic;
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Pour une compatibilité idéale (WOFF2 et WOFF)</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+/* Regular normal */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-regular.woff2) format('woff2'),
+         url(myfont-regular.woff) format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Regular italic */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-regular-italic.woff2) format('woff2'),
+         url(myfont-regular-italic.woff) format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Bold normal */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-bold.woff2) format('woff2'),
+         url(myfont-bold.woff) format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Bold italic */
+@font-face
+{
+    font-family: 'myFont';
+    src: url(myfont-bold-italic.woff2) format('woff2'),
+         url(myfont-bold-italic.woff) format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Générateurs</h2>
+                </section>
+
+                <section>
+                    <p>Pour nous simplifier la vie, on utilise des générateurs de font-face</p>
+                    <ul>
+                        <li>
+                            <a href="http://transfonter.org/" target="_blank">Transfonter</a> (efficace, peu de restrictions sur les fonts)
+                        </li>
+                        <li>
+                            <a href="http://www.fontsquirrel.com/tools/webfont-generator" target="_blank">Font Squirrel</a> (restriction sur les fonts)
+                        </li>
+                        <li>
+                            <a href="http://www.font2web.com/" target="_blank">Font2Web</a> (moins pratique, peu de restrictions sur les fonts)
+                        </li>
+                        <li>
+                            <a href="https://github.com/matthewgonzalez/fontplop" target="_blank">FontPlop</a> (pas de restrictions sur les fonts, dégradations occasionnelles)
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>La majorité des fonts supportent beaucoup de caractères, mais nous n'en utilisons qu'une infime partie sur nos sites</p>
+                    <p>Certains générateurs permettent de sélectionner les caractères supportés</p>
+                    <p>
+                        Vous pouvez trouver une liste de caractères ici
+                        <a href="https://gist.github.com/brunosimon/f005cd0aec56779bf4c9a587815bf6a2" target="_blank">gist.github.com/brunosimon/f005cd0aec56779bf4c9a587815bf6a2</a>
+                    </p>
+                    <p>Noubliez pas l'espace</p>
+                </section>
+
+                <section>
+                    <h2>Les hébergeurs de fonts</h2>
+                </section>
+
+                <section>
+                    <ul>
+                        <li><a href="http://www.fonts.com/" target="_blank">www.fonts.com</a> (payant, large choix)</li>
+                        <li><a href="https://www.google.com/fonts" target="_blank">www.google.com/fonts</a> (gratuit, faible choix)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Google fonts</h3>
+                    <p>Allez sur <a href="https://www.google.com/fonts" target="_blank">www.google.com/fonts</a></p>
+                    <p>Importez <span class="hl">Open Sans</span> en <span class="hl">normal</span> et <span class="hl">italic</span> pour les poids <span class="hl">300</span>, <span class="hl">400</span> et <span class="hl">700</span></p>
+                </section>
+
+                <section>
+                    <h3>Avantages</h3>
+                    <ul>
+                        <li>Plus facile à mettre en place</li>
+                        <li>Plus rapide à charger (multi domaines)</li>
+                        <li>Cache navigateur (si font déjà téléchargées depuis un autre site)</li>
+                        <li>CDN</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Inconvénients</h3>
+                    <ul>
+                        <li>Nécessité d'être connecté</li>
+                        <li>Dépendant de l'hébergeur</li>
+                        <li>Choix limité de fonts</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>font-smoothing</h2>
+                </section>
+
+                <section>
+                    <p>Il est possible de modifier le rendu des fonts</p>
+                    <p>Par défaut, elles sont épaisses, surtout sur Firefox OSX</p>
+                    <p>La différence dépend de la font et de la densité de pixel de l'écran</p>
+                    <div class="code-steps" data-type="css" data-trim>
+                        <pre contenteditable><code>
+body
+{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+                        </code></pre>
+                    </div>
+                    <p>
+                        <img src="src/img/font-smoothing-comparaison.png" alt="" width="900">
+                    </p>
+                </section>
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+    </body>
+</html>

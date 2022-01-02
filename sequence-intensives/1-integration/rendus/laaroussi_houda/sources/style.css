@@ -1,0 +1,85 @@
+body
+{
+    margin: 0 auto;
+    padding: 0;
+    background:#21001A;
+    font-size: 24px;
+    color:  #E0D3D3 ;
+}
+@font-face {
+    font-family: 'GRAPHICPSYCHPOATHY';
+    src: url('fonts/GRAPHICPSYCHOPATHY.woff2')format('woff2'),
+        url('fonts/GRAPHICPSYCHOPATHY.woff')format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;   
+}
+.wrapper
+{
+    width: 1625px;
+    margin:0 auto;
+}
+/* Header */
+.header
+{
+    background-image: url(file:///Users/zaylaaroussi/Downloads/hou-china-11%201.svg);
+    background-size: cover;
+    height: 555px;
+    width: 1625px;
+}
+
+.header #logo1
+{
+  width: 474px; 
+  height: 148px; 
+  padding: 154px 134px;
+}
+
+.header #logo2
+{
+    text-align: right;
+    height: 64.32px;
+
+}
+.header .navigation .link
+{
+    text-decoration: none;
+    color: rgb(124, 10, 10);
+    top: 15px;
+    position: absolute;
+}
+.header.navigation .audio
+{
+    width: 100%;
+}
+/* Presentation */
+
+.presentation .title
+{
+    color:rgba(179, 137, 74, 0.87);
+    text-align:center;
+}
+.presentation.presentation
+{
+    font-size: 24px;
+    line-height: 43px;
+    width: 820px;
+    height: 259px;
+    top: 1058px;
+    left: 92px;
+    color:rgba(224, 211, 211, 1);
+}
+
+.presentation .quote .image
+{
+    width: 167px;
+    height: 115px;
+}
+
+/* contents*/
+
+
+
+
+
+  

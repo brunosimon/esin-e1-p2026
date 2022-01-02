@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'Arcane nine';
+    src: url('arcane-nine.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body
+{
+    background: #000;
+    color: #e5e5e5;
+    margin: 60px 20px 20px;
+    background-image: url("images/neon-blue.png");
+}
+
+.header .logo-arcane
+{
+    position: relative;
+    width: auto;
+}
+
+.header .navigation .link
+{
+    position: relative;
+    width: 194px;
+    height: 47px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #BA8A63;
+    font-family: 'EB Garamond';
+    padding: 0px 40px 0px 40px;
+    top: -50px;
+    left: 450px;
+}
+
+.header .navigation .link-underline
+{
+    position: absolute;
+    font-size: 20px;
+    color: #BA8A63;
+    top: 90px;
+    left: 400px;
+}
+
+
+.article .title
+{
+    padding: 90px 0px 30px 30px;
+    
+}
+
+.article .logo
+{
+    color: #e5e5e5;
+    width: 100px;
+}
+
+.article .subtitle 
+{
+    position: relative;
+    left: 300px;
+    top: -90px;
+}
+
+.article .title-text
+{
+    font-family: 'EB Garamond';
+    padding: 0 0 0 50px;
+    text-decoration: underline;
+}
+
+.article.text
+{
+    width: 520px;
+    height: 112px;
+    font-family: 'EB Garamond';
+    font-size: 16px;
+    line-height: 44px;
+    width: 520px;
+    height: 112px;
+}
+
+.wrapper .title
+{
+    padding: 150px 0px 30px 30px;
+}
+
+.wrapper .logo
+{
+    color: #e5e5e5;
+    width: 100px;
+}
+
+.wrapper .subtitle 
+{
+    position: relative;
+    left: 300px;
+    top: -90px;
+}
+
+.wrapper .more
+{
+    font-family: 'EB Garamond';
+    padding: 0 0 0 50px;
+    text-decoration: underline;
+}
+
+.wrapper .skin
+{
+    padding-bottom: 60px;
+    padding-left: 140px;
+}
+
+.wrapper .description
+{
+    width: 222px;
+    height: 45px;
+    padding: 60px 0 80px 150px;
+    font-size: 20px;
+
+}
+
+.services .logo
+{
+    position: relative;
+    color: #e5e5e5;
+    width: 100px;
+    top: 250px;
+}
+
+.services .title
+{
+    padding: 150px 0px 100px 300px;
+}
+
+.services .skills
+{
+display: inline-block;
+position: relative;
+top: -200px;
+left: 00px;
+}
+
+.content .logo
+{
+    position: relative;
+    color: #e5e5e5;
+    width: 100px;
+    top: -715px;
+}
+
+.footer .mention
+{
+    position: sticky;
+    padding: 0px 24px;
+    width: 346px;
+    height: 40px;
+    /* left: 130px; */
+    font-size: bolder;
+    font-family: 'EB Garamond';
+    color: blue;
+}

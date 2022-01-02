@@ -1,0 +1,292 @@
+body
+{
+    background-image: url(1548423-arcaaa-article_m-1.png);
+}
+
+.logos
+{
+    position: absolute;
+    top: 0;
+    left: 39%;
+    background-position: center;
+    width: 300px;
+    height: 150px;
+}
+
+.title
+{
+    position: relative;
+}
+
+.title .illustration
+{
+    position: absolute;
+    top: 140px;
+    left: 15%;
+   background-position: center;
+    width: 900px;
+    height: 450px;
+}
+
+.title .block-1
+{
+    position: absolute;
+    top: 140px;
+    left: 15%;
+    background-color: #00000014;
+    width: 900px;
+    height: 45px;
+}
+
+.title .block-1 .link-1 
+{ 
+    position: absolute;
+    top: 0;
+    left: 50px;
+    font-family: Open Sans; 
+    font-size: 20px; 
+    font-weight: bold;
+}
+.title .block-1 .lin-2 
+{ 
+    position: absolute;
+    top: 0;
+    left: 180px;
+    font-family: Open Sans; 
+    font-size: 20px; 
+    font-weight: bold;
+}
+.title .block-1 .lin-3 
+{ 
+    position: absolute;
+    top: 0;
+    left: 320px;
+    font-family: Open Sans; 
+    font-size: 20px; 
+    font-weight: bold;
+}
+.title .block-1 .lin-4 
+{ 
+    position: absolute;
+    top: 0;
+    right: 280px;
+    color: white;
+    font-family: Open Sans; 
+    font-size: 20px; 
+    font-weight: bold;
+}
+.title .block-1 .lin-5 
+{ 
+    position: absolute;
+    top: 0;
+    right: 50px;
+    color: white;
+    font-family: Open Sans; 
+    font-size: 20px; 
+    font-weight: bold;
+}
+
+.title .block-2
+{
+    position: absolute;
+    top: 400px;
+    left: 19%;
+    background-color: white;
+    width: 800px;
+    height: 200px;
+}
+
+.title .block-2 .Acceuil
+{
+    position: absolute;
+    font-family: Open Sans;
+    font-size: 10px;
+    background-color: #C4C4C4;
+    opacity: 20%;
+}
+
+.title .block-2 .brick
+{
+    position: absolute;
+    top: 30px;
+    width: 70px;
+    height: 30px;
+    background-color: black;
+}
+
+.title .block-2 .brick-2
+{
+    position: absolute;
+    top: 30px;
+    left: 90px;
+    width: 70px;
+    height: 30px;
+    background-color: black;
+}
+
+.title .block-2 .rubrique
+{
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    color: white;
+}
+
+.title .block-2 .rubrique-2
+{
+    position: absolute;
+    top: 20px;
+    left: 102px;
+    color: white;
+}
+
+.title .block-2 .first-title
+{
+    position: absolute;
+    top: 40px;
+    /* left: 5px; */
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Open Sans;
+}
+
+.title .block-2 .signature
+{
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    font-size: 15px;
+}
+
+.title .block-3
+{
+    position: absolute;
+    top: 590px;
+    width: 1245px;
+    height: 950px;
+    background: white;
+}
+
+.title .block-3 .fond
+{
+    position: absolute;
+    top: 150px;
+    width: 350px;
+    height: 600px;
+    right: 0;
+}
+
+.title .block-3 .line
+{
+    position: absolute;
+    top: 50px;
+    width: 2px;
+    height: 280px;
+    right: 622.5px;
+    background: black;
+
+}
+
+.title .block-3 .second-title
+{
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-family: Open Sans;
+    font-size: 20px;
+}
+
+.title .block-3 .paragraphe-1
+{
+    position: absolute;
+    top: 35px;
+    left: 20px;
+    font-size: 15px;
+    width: 250px;
+    height: 100px;
+}
+
+.title .block-3 .link-2
+{
+    position: absolute;
+    top: 48px;
+    left: 380px;
+    font-family: Open Sans;
+    font-size: 15px;
+}
+
+.title .block-3 .link-3
+{
+    position: absolute;
+    top: 96px;
+    left: 380px;
+    font-family: Open Sans;
+    font-size: 15px;
+}
+
+.title .block-3 .link-4
+{
+    position: absolute;
+    top: 145px;
+    left: 380px;
+    font-family: Open Sans;
+    font-size: 15px;
+}
+
+.title .block-3 .third-title
+{
+    position: absolute;
+    top: 0;
+    right: 150px;
+    font-family: Open Sans;
+    font-size: 20px;
+}
+
+.title .block-3 .paragraphe-2
+{
+    position: absolute;
+    top: 40px;
+    right: 100px;
+    font-size: 15px;
+    width: 500px;
+    height: 100px;
+}
+
+.title .block-3 .link-5
+{
+    position: absolute;
+    top: 355px;
+    left: 15px;
+    font-family: Open Sans;
+    font-size: 20px;
+    color: black;
+}
+
+.title .block-3 .paragraphe-3
+{
+    position: absolute;
+    top: 380px;
+    left: 20px;
+    font-size: 15px;
+    width: 800px;
+    height: 100px;
+}
+
+.title .block-3 .block-4
+{
+    position: absolute;
+    top: 750px;
+    width: 1245px;
+    height: 200px;
+    bottom: 100px;
+    background: black;
+}
+
+.title .block-3 .block-4 .logos-2
+{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 300px;
+    height: 150px;
+}
