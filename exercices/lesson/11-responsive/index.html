@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 - Reponsive</title>
+
+    <script src="js/modernizr-custom.js"></script>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#9a76e1">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Three.js Journey">
+    <meta name="application-name" content="Three.js Journey">
+    <meta name="msapplication-TileColor" content="#9f7eff">
+    <meta name="msapplication-config" content="icons/browserconfig.xml">
+    <meta name="theme-color" content="#fdf9ff">
+</head>
+<body>
+    <h1>Mon super site</h1>
+    <h2>Un sous-titre</h2>
+    <h3>Un sous-sous-titre</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius doloremque ut rerum repellendus veniam, voluptatem placeat laudantium dolorum fuga! Molestias aut repudiandae quaerat consectetur impedit officiis tenetur non ullam corrupti.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi voluptatem quidem accusamus tempore, sit dolorum cumque veritatis temporibus quo, est cupiditate, inventore assumenda sint deserunt labore quod iusto aliquam?</p>
+    <table>
+        <tr>
+            <th>Toto</th>
+            <th>Tata</th>
+        </tr>
+        <tr>
+            <td>Toto</td>
+            <td>Tata</td>
+        </tr>
+    </table>
+    <ul>
+        <li>Toto</li>
+        <li>Tata</li>
+        <li>Tutu</li>
+    </ul>
+    <ol>
+        <li>Toto</li>
+        <li>Tata</li>
+        <li>Tutu</li>
+    </ol>
+    <div class="alert">Your device doesn't support orientation events</div>
+    <img
+        width="100%"
+        src="resources/image-test-1280.png"
+        srcset="
+            resources/image-test-320.png 320w,
+            resources/image-test-640.png 640w,
+            resources/image-test-1280.png 1280w
+        "
+    >
+
+    <picture>
+        <source srcset="resources/image-test-320.png" media="(max-width: 320px)">
+        <source srcset="resources/image-test-640.png" media="(max-width: 640px)">
+        <source srcset="resources/image-test-1280.png" media="(min-width: 641px)">
+        <img src="resources/image-test-1280.png" width="100%">
+    </picture>
+
+</body>
+</html>

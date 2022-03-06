@@ -1,0 +1,233 @@
+body
+{
+    margin: 0;
+    background: #edeff1;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #444444;
+}
+
+/* Container */
+.container
+{
+    width: 840px;
+    margin: 0 auto 0 auto;
+}
+
+/* Header */
+.header
+{
+    position: relative;
+    margin-bottom: 40px;
+    padding: 55px 0 62px 25px;
+    background-color: #ffffff;
+}
+
+.header .title
+{
+    margin: 0;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.header .navigation
+{
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    margin-top: -25px;
+}
+
+.header .navigation .link
+{
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header .navigation .link:hover
+{
+    text-decoration: underline;
+}
+
+/* Articles */
+.articles
+{
+    margin-bottom: 30px;
+    font-size: 0;
+}
+
+.articles .article
+{
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    width: 400px;
+    height: 390px;
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    font-size: 14px;
+}
+
+.articles .article:nth-child(odd)
+{
+    margin-right: 40px;
+}
+
+.articles .article .content
+{
+    padding: 32px 40px 22px 40px;
+    line-height: 1.25em;
+}
+
+.articles .article .title
+{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.articles .article a
+{
+    position: absolute;
+    right: 20px;
+    bottom: -20px;
+    padding: 12px 20px;
+    background: #fc534c;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Footer */
+.footer
+{
+    padding: 35px 40px;
+    background: #232729;
+    color: #ffffff;
+}
+
+.footer a
+{
+    color: inherit;
+}
+
+@media (max-width: 900px)
+{
+    .container
+    {
+        width: auto;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .articles .article
+    {
+        width: calc(50% - 20px);
+    }
+
+    .articles .article .image
+    {
+        width: 100%;
+    }
+
+    .articles .article .content
+    {
+        padding: 30px 30px 22px 30px;
+    }
+}
+
+
+@media (max-width: 720px)
+{
+    .container
+    {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .header
+    {
+        margin-bottom: 20px;
+        padding: 35px 0 42px 25px;
+    }
+
+    .header .title
+    {
+        font-size: 42px;
+    }
+
+    .header .navigation .link
+    {
+        padding: 15px 10px;
+    }
+
+    .articles .article
+    {
+        width: calc(50% - 10px);
+        margin-bottom: 40px;
+    }
+
+    .articles .article:nth-child(odd)
+    {
+        margin-right: 20px;
+    }
+    
+    .footer
+    {
+        padding: 25px 30px;
+    }
+}
+
+
+@media (max-width: 600px)
+{
+    .container
+    {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .header
+    {
+        padding: 25px 0 20px 0;
+        text-align: center;
+    }
+
+    .header .navigation
+    {
+        position: static;
+        margin-top: 0;
+    }
+
+    .header .navigation .link
+    {
+        padding: 10px 5px;
+    }
+
+    .articles .article
+    {
+        width: auto;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .articles .article:nth-child(odd)
+    {
+        margin-right: 0;
+    }
+
+    .articles .article a
+    {
+        position: static;
+        display: block;
+        text-align: center;
+        padding: 20px 0;
+    }
+    
+    .footer
+    {
+        padding: 25px 20px;
+        text-align: center;
+    }
+}

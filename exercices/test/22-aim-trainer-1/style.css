@@ -1,0 +1,51 @@
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #111111;
+}
+
+.aim-trainer
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 0 50px #ffffff99;
+}
+
+.aim-trainer .target
+{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
+    background: radial-gradient(#a20101, #ff0000);
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ff0000;
+}
+
+.start
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff;
+    cursor: pointer;
+}

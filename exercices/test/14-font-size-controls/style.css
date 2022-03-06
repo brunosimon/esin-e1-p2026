@@ -1,0 +1,41 @@
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.font-size-controls
+{
+    width: 800px;
+}
+
+.font-size-controls .controls
+{
+    margin-bottom: 20px;
+}
+
+.font-size-controls .controls button
+{
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(#444444, #000000);
+    border: 0;
+    outline: none;
+    color: #ffffff;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.font-size-controls .text
+{
+    padding: 20px;
+    background: linear-gradient(#eeeeee, #fefefe);
+    border-radius: 4px;
+    font-size: 16px;
+}

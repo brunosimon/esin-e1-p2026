@@ -1,0 +1,290 @@
+body
+{
+    margin: 0;
+    background: #edeff1;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #444444;
+    line-height: 1.25em;
+}
+
+/* Container */
+.container
+{
+    width: 840px;
+    margin: 0 auto 0 auto;
+}
+
+/* Header */
+.header
+{
+    position: relative;
+    margin-bottom: 40px;
+    padding: 55px 0 62px 25px;
+    background-color: #ffffff;
+}
+
+.header .title
+{
+    margin: 0;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.header .navigation
+{
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    margin-top: -25px;
+}
+
+.header .navigation .link
+{
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header .navigation .link:hover
+{
+    text-decoration: underline;
+}
+
+/* Articles */
+.articles
+{
+    margin-bottom: 30px;
+    font-size: 0;
+}
+
+.articles .article
+{
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    width: 400px;
+    height: 390px;
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    font-size: 14px;
+}
+
+.articles .article:nth-child(odd)
+{
+    margin-right: 40px;
+}
+
+.articles .article .image
+{
+    width: 100%;
+}
+
+.articles .article .content
+{
+    padding: 22px 40px;
+}
+
+.articles .article .title
+{
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.articles .article a
+{
+    position: absolute;
+    right: 20px;
+    bottom: -20px;
+    padding: 12px 20px;
+    background: #fc534c;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Footer */
+.footer
+{
+    padding: 35px 40px;
+    background: #232729;
+    color: #ffffff;
+}
+
+.footer a
+{
+    color: inherit;
+}
+
+@media (max-width: 900px)
+{
+    .container
+    {
+        width: auto;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .articles .article
+    {
+        width: calc(50% - 20px);
+    }
+
+    .articles .article .content
+    {
+        padding: 25px 30px 25px 30px;
+    }
+}
+
+@media (max-width: 700px)
+{
+    .container
+    {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .header
+    {
+        margin-bottom: 20px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .header .title
+    {
+        font-size: 42px;
+    }
+
+    .header .navigation .link
+    {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .articles .article
+    {
+        width: calc(50% - 10px);
+        margin-bottom: 40px;
+    }
+
+    .articles .article:nth-child(odd)
+    {
+        margin-right: 20px;
+    }
+
+    .footer
+    {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 600px)
+{
+    .container
+    {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .header
+    {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    .header .title
+    {
+        margin-bottom: 12px;
+    }
+
+    .header .navigation
+    {
+        position: initial;
+        margin-top: initial;
+    }
+
+    .articles .article
+    {
+        width: auto;
+        height: auto;
+    }
+
+    .articles .article:nth-child(odd)
+    {
+        margin-right: 0;
+    }
+
+    .articles .article .content
+    {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 40px;
+    }
+}
+
+
+@media (max-width: 420px)
+{
+    body
+    {
+        font-size: 13px;
+    }
+
+    .container
+    {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .header .title
+    {
+        font-size: 34px;
+    }
+
+    .header .navigation .link
+    {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .articles
+    {
+        margin-bottom: 0;
+    }
+
+    .articles .article
+    {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .articles .article .content
+    {
+        padding-bottom: 30px;
+    }
+
+    .articles .article a
+    {
+        display: block;
+        position: initial;
+        padding: 12px 0;
+        text-align: center;
+    }
+
+    .footer
+    {
+        text-align: center;
+    }
+}
+
+@media (min-width: 600px)
+{
+    body
+    {
+        background: red;
+    }
+}

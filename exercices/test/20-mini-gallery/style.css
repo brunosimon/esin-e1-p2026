@@ -1,0 +1,44 @@
+body
+{
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.mini-gallery
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(45deg, #6941bf, #ffcd97);
+    font-size: 0;
+}
+
+.mini-gallery .large
+{
+    margin-bottom: 10px;
+}
+
+.mini-gallery .thumbnails:hover .thumbnail
+{
+    opacity: 0.5;
+}
+
+.mini-gallery .thumbnails .thumbnail:hover
+{
+    opacity: 1;
+}
+
+.mini-gallery .thumbnail
+{
+    margin: 0;
+    transition: opacity 0.2s;
+    will-change: opacity;
+}
+
+.mini-gallery img
+{
+    box-shadow: 0 0 30px 0 #6941bf77;
+}
