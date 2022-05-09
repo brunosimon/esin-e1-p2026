@@ -1,0 +1,55 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+.mini-gallery
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, #db73c9, #ffe69d);
+    font-size: 0;
+}
+
+.mini-gallery .large
+{
+    position: relative;
+    width: 600px;
+    height: 400px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.mini-gallery .mover
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    transition: transform 0.5s;
+    will-change: transform;
+}
+
+.mini-gallery .thumbnails .thumbnail
+{
+    transition: opacity 0.5s;
+    will-change: opacity;
+}
+
+.mini-gallery .thumbnails:hover .thumbnail
+{
+    opacity: 0.5;
+}
+
+.mini-gallery .thumbnails .thumbnail:hover
+{
+    opacity: 1;
+}

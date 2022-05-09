@@ -1,0 +1,11 @@
+html
+{
+    background: #111111;
+}
+
+.confetti-canvas
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}

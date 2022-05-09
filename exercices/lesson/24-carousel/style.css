@@ -1,0 +1,53 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+.carousel
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, #db73c9, #ffe69d);
+    font-size: 0;
+}
+
+.carousel .large
+{
+    width: 600px;
+    height: 400px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.carousel .mover
+{
+    /* display: flex; */
+    /* width: calc(600px * 4); */
+    white-space: nowrap;
+    transition: transform 0.5s;
+    will-change: transform;
+}
+
+.carousel .thumbnails .thumbnail
+{
+    transition: opacity 0.5s;
+    will-change: opacity;
+}
+
+.carousel .thumbnails:hover .thumbnail
+{
+    opacity: 0.5;
+}
+
+.carousel .thumbnails .thumbnail:hover
+{
+    opacity: 1;
+}

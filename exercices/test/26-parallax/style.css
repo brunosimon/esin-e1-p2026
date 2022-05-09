@@ -1,0 +1,53 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background: #210002;
+    overflow-x: hidden;
+}
+
+.hero
+{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: orange;
+    overflow: hidden;
+}
+
+.hero .layer
+{
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: calc(100% + 80px);
+    height: calc(100% + 80px);
+}
+
+.hero .layer img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.hero .layer img.is-loaded
+{
+    opacity: 1;
+}
+
+.content
+{
+    height: 200vh;
+    padding: 100px;
+    color: #ffffff;
+}

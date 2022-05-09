@@ -1,0 +1,58 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    overflow-x: hidden;
+    background: #210002;
+}
+
+.hero
+{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero .layer
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero .layer img
+{
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: calc(100% + 80px);
+    height: calc(100% + 80px);
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.hero .layer:last-child img
+{
+    object-position: center bottom;
+}
+
+.hero .layer img.is-loaded
+{
+    opacity: 1;
+}
+
+.content
+{
+    height: 200vh;
+    padding: 100px;
+    text-align: center;
+    color: #ffffff;
+}
