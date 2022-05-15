@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cours 20 - JS - Canvas</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css">
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Développement web</h1>
+                    <h3>Cours 20</h3>
+                    <ul>
+                        <li>site : <a target="_blank" href="https://bruno-simon.com/esin/e1-p2026/">https://bruno-simon.com/esin/e1-p2026/</a></li>
+                        <li>contact : <a target="_blank" href="mailto:bruno.simon1@exterieur.groupe-igs.fr">bruno.simon1@exterieur.groupe-igs.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Canvas</h1>
+                </section>
+
+                <section>
+                    <p>Espace de pixels permettant de dessiner à l'aide d'une multitude de méthodes javascript</p>
+                </section>
+
+                <section>
+                    <h2>Compatibilité</h2>
+                    <p><a target="_blank" href="http://caniuse.com/#feat=canvas">http://caniuse.com/#feat=canvas</a></p>
+                    <p class="ciu_embed" data-feature="canvas" data-periods="future_1,current,past_1,past_2,past_3,past_4"></p>
+                </section>
+
+                <section>
+                    <h2>Démonstrations</h2>
+                </section>
+
+                <section>
+                    <ul>
+                        <li><a target="_blank" href="http://codepen.io/suffick/full/KrAwx/">codepen.io/suffick/full/KrAwx/</a></li>
+                        <li><a target="_blank" href="https://codepen.io/ara_node/pen/nuJCG">codepen.io/ara_node/pen/nuJCG</a></li>
+                        <li><a target="_blank" href="https://codepen.io/alexzaworski/pen/mEkvAG">codepen.io/alexzaworski/pen/mEkvAG</a></li>
+                        <li><a target="_blank" href="https://codepen.io/linrock/pen/Amdhr">codepen.io/linrock/pen/Amdhr</a></li>
+                        <li><a target="_blank" href="https://codepen.io/jackrugile/pen/qLCuE">codepen.io/jackrugile/pen/qLCuE</a></li>
+                        <li><a target="_blank" href="https://codepen.io/deanwagman/pen/EjLBdQ">codepen.io/deanwagman/pen/EjLBdQ</a></li>
+                        <li><a target="_blank" href="https://codepen.io/towc/pen/mJzOWJ">codepen.io/towc/pen/mJzOWJ</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <ul>
+                        <li><a target="_blank" href="http://wxs.ca/iso/">wxs.ca/iso/</a></li>
+                        <li><a target="_blank" href="http://paperjs.org/examples/">paperjs.org/examples/</a></li>
+                        <li><a target="_blank" href="http://soulwire.github.io/Muscular-Hydrostats/">soulwire.github.io/Muscular-Hydrostats/</a></li>
+                        <li><a target="_blank" href="http://soulwire.github.io/sketch.js/examples/particles.html">soulwire.github.io/sketch.js/examples/particles.html</a></li>
+                        <li><a target="_blank" href="https://jeongsteph.design/">jeongsteph.design</a></li>
+                        <li><a target="_blank" href="http://myriam-dayaf.fr/">myriam-dayaf.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Mise en place</h2>
+                </section>
+
+                <section>
+                    <div class="code-steps" data-type="html" data-trim>
+                        <pre contenteditable><code>
+&lt;canvas width="800" height="600"&gt;&lt;/canvas&gt;
+                        </code></pre>
+                    </div>
+                    <div class="code-steps" data-type="js" data-trim>
+                        <pre contenteditable><code>
+const canvas = document.querySelector('canvas')
+const context = canvas.getContext('2d')
+                        </code></pre>
+                    </div>
+                    <ul>
+                        <li><span class="hl">canvas</span> correspond à l'élément dans le DOM</li>
+                        <li><span class="hl">context</span> sera utilisé pour dessiner</li>
+                    </ul>
+                    <p class="fragment">Ce code ne sera pas répété dans les exemples qui suivent</p>
+                </section>
+
+                <section>
+                    <h2>Lignes et remplissages</h2>
+                </section>
+
+                <section>
+                    <p>Pour dessiner, la méthode classique consiste à</p>
+                    <ul>
+                        <li>Indiquer qu'on commence un tracé</li>
+                        <li>Définir le tracé (un trait ici, un cercle là, etc.)</li>
+                        <li>Définir le style (trait orange large de 20px)</li>
+                        <li>Faire apparaitre le tracé sur le canvas</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Lignes</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                           *: ;
+                           l1: On indique qu'on commence un nouveau tracé;
+                           l3: On place le tracé à 50px en X et 50px en Y;
+                           l4: On trace une ligne du point précédent jusqu'à 200 en X et 200 en Y;
+                           l5: On trace une ligne du point précédent jusqu'à 50 en X et 200 en Y;
+                           l6: On ferme le tracé jusqu'au point de départ (pas obligatoire);
+                           l8: On trace le trait en laissant le style par défaut
+                        "
+                    >
+                        <pre contenteditable><code>
+context.beginPath()
+
+context.moveTo(50, 50)
+context.lineTo(200, 200)
+context.lineTo(50, 200)
+context.closePath()
+
+context.stroke()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Lignes</p>
+                    <canvas id="canvas-1" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                           *: ;
+                           l1: On indique qu'on commence un nouveau tracé;
+                           l3: On place le tracé à 50px en X et 50px en Y;
+                           l4: On trace une ligne du point précédent jusqu'à 200 en X et 200 en Y;
+                           l5: On trace une ligne du point précédent jusqu'à 50 en X et 200 en Y;
+                           l7: On rempli en laissant le style par défaut
+                        "
+                    >
+                        <pre contenteditable><code>
+context.beginPath()
+
+context.moveTo(50, 50)
+context.lineTo(200, 200)
+context.lineTo(50, 200)
+
+context.fill()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Remplissages</p>
+                    <canvas id="canvas-2" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">Style</h2>
+                </section>
+
+                <section>
+                    <p>Il existe de nombreuses propriétés pour changer le style du dessin</p>
+                    <p>Cela peut concerner les lignes ou le remplissage</p>
+                    <p>Le style s'appliquera sur tous les dessins suivant le changement de propriété</p>
+                </section>
+
+                <section>
+                    <p>Modifier le style de la ligne</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                           *: ;
+                           l7: On règle la largeur de la ligne en px;
+                           l8: On règle le bout de ligne;
+                           l9: On règle les jointures de lignes;
+                           l10: On règle la couleur des traits;
+                           l12: On dessine le trait
+                        "
+                    >
+                        <pre contenteditable><code>
+context.beginPath()
+
+context.moveTo(50, 50)
+context.lineTo(200, 200)
+context.lineTo(50, 200)
+
+context.lineWidth   = 20
+context.lineCap     = 'round'  // round | butt | square
+context.lineJoin    = 'bevel'  // bevel | round | mitter
+context.strokeStyle = 'orange'
+
+context.stroke()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Modifier le style de la ligne</p>
+                    <canvas id="canvas-3" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <p>Modifier le style de remplissage</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                           *: ;
+                           l7: On règle la couleur de remplissage;
+                           l9: On rempli
+                        "
+                    >
+                        <pre contenteditable><code>
+context.beginPath()
+
+context.moveTo(50, 50)
+context.lineTo(200, 200)
+context.lineTo(50, 200)
+
+context.fillStyle = 'rgba(255, 0, 0, 0.5)'
+
+context.fill()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Modifier le style de remplissage</p>
+                    <canvas id="canvas-4" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <p>Ombres</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l8: On règle la couleur de l'ombre;
+                            l9: On règle le flou de l'ombre;
+                            l10: On règle le décalage en X de l'ombre;
+                            l11: On règle le décalage en Y de l'ombre
+                        "
+                    >
+                        <pre contenteditable><code>
+context.beginPath()
+
+context.moveTo(50, 50)
+context.lineTo(200, 200)
+context.lineTo(50, 200)
+
+context.fillStyle     = 'rgba(255, 0, 0, 1)'
+context.shadowColor   = 'blue'
+context.shadowBlur    = 50
+context.shadowOffsetX = 5
+context.shadowOffsetY = 10
+
+context.fill()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Ombres</p>
+                    <canvas id="canvas-5" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">rect() et arc()</h2>
+                </section>
+
+                <section>
+                    <p>Certaines méthodes permettent de définir des tracés autre que des lignes</p>
+                    <p><span class="highlight">rect()</span> permet de tracer un rectangle</p>
+                    <p><span class="highlight">arc()</span> permet de tracer un arc de cercle</p>
+                </section>
+
+                <section>
+                    <p>La variable globale Math possède plusieurs propriétés et méthodes mathématiques</p>
+                    <p>Celle que nous allons utilisé est <span class="highlight">Math.PI</span> et permet d'obtenir le nombre <span class="highlight">π</span> utile pour dessiner des arcs de cercle</p>
+                    <p><img src="src/img/math-pi.png" width="350" alt=""></p>
+                </section>
+
+                <section>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                           *: ;
+                           l1-l2: On défini le style une fois au début, il s'appliquera toujours ensuite;
+                           l4-l6: On rempli un rectangle;
+                           l8-l10: On rempli un demi cercle;
+                           l12-l15: On dessine un contour de rectangle;
+                           l17-l19: On dessine un contour de demi cercle
+                        "
+                    >
+                        <pre contenteditable><code>
+context.fillStyle   = 'orange'
+context.strokeStyle = 'orange'
+
+context.beginPath()
+context.rect(50, 50, 200, 100)
+context.fill()
+
+context.beginPath()
+context.arc(400, 50, 100, 0, Math.PI, false)
+context.fill()
+
+context.beginPath()
+context.fillStyle = 'orange'
+context.rect(50, 200, 200, 100)
+context.stroke()
+
+context.beginPath()
+context.arc(400, 200, 100, 0, Math.PI, false)
+context.stroke()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <canvas id="canvas-6" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">fillRect() et clearRect()</h2>
+                </section>
+
+                <section>
+                    <p><span class="highlight">fillRect()</span> permet de remplir un rectangle sans passer par <span class="highlight">beginPath()</span> et <span class="highlight">fill()</span></p>
+                    <p><span class="highlight">clearRect()</span> permet d'effacer un rectangle</p>
+                </section>
+
+                <section>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1-l2: On rempli un rectangle orange;
+                            l4: On efface une partie de ce rectangle;
+                            l6-l7: On rempli un rectangle cyan;
+                            l9-l13: On rempli deux demi cercles noirs
+                        "
+                    >
+                        <pre contenteditable><code>
+context.fillStyle = 'orange'
+context.fillRect(50, 50, 300, 160)
+
+context.clearRect(50, 50, 100, 80)
+
+context.fillStyle = 'cyan'
+context.fillRect(160, 60, 20, 70)
+
+context.beginPath()
+context.fillStyle = 'black'
+context.arc(280, 210, 50, 0, Math.PI, false)
+context.arc(120, 210, 50, 0, Math.PI, false)
+context.fill()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <canvas id="canvas-7" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <h2>Textes</h2>
+                </section>
+
+                <section>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1: On créé une variable contenant le text car nous en aurons besoin plusieurs fois ensuite;
+                            l3: On règle la font comme en CSS;
+                            l4: On règle l'alignement horizontal;
+                            l5: On règle l'alignement vertical;
+                            l7: Il est possible de récupérer la largeur du text sans l'écrire;
+                            l9: On écrit le text en remplissage;
+                            l10: On écrit le text en contours
+                        "
+                    >
+                        <pre contenteditable><code>
+const text = 'Lorem ipsum dolor sit amet'
+
+context.font = '40px Arial'
+context.textAlign = 'center' // left | center | right
+context.textBaseline = 'top' // top | bottom | middle | alphabetic | hanging
+
+console.log(context.measureText(text).width)
+
+context.fillText(text, 300, 100)
+context.strokeText(text, 300, 160)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <canvas id="canvas-8" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <h2>Images</h2>
+                </section>
+
+                <section>
+                    <p>Pour dessiner une image, il est nécessaire de l'avoir chargée</p>
+                    <p>Il faut donc créer, en javascript, un objet <span class="highlight">Image</span> et écouter son événement <span class="highlight">load</span></p>
+                </section>
+
+                <section>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1: On créé une balise &lt;img&gt;;
+                            l2-l7: On écoute son événement 'load';
+                            l9: On défini le src après avoir écouté le chargement au cas où l'image était déjà en cache;
+                            l5: On dessine l'image en laissant ses dimensions par défaut;
+                            l6: On dessine l'image en laissant en réduisant ses dimension de moitié
+                        "
+                    >
+                        <pre contenteditable><code>
+const image = document.createElement('img')
+
+image.addEventListener('load', () =>
+{
+    context.drawImage(image, 0, 0)
+    context.drawImage(image, 0, 0, image.width * 0.5, image.height * 0.5)
+})
+
+image.src = 'image.jpg'
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <canvas id="canvas-9" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <h2>Dégradés</h2>
+                </section>
+
+                <section>
+                    <p>Dégradé linéaire</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1: On créé le dégradé allant d'un point (x1, y1) sur le canvas à un autre point (x2, y2);
+                            l3-l5: On ajoute des couleurs au début (0), au milieu (0.5) et à la fin (1);
+                            l7: On défini le dégradé comme style de remplissage;
+                            l9: On rempli un carré
+                        "
+                    >
+                        <pre contenteditable><code>
+const gradient = context.createLinearGradient(50, 50, 250, 250) // x1, y1, x2, y2
+
+gradient.addColorStop(0, 'rgb(255, 80, 0)')
+gradient.addColorStop(0.5, 'rgb(255, 191, 0)')
+gradient.addColorStop(1, 'rgb(255, 246, 155)')
+
+context.fillStyle = gradient
+
+context.fillRect(0, 0, 400, 400)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Dégradé linéaire</p>
+                    <canvas id="canvas-10" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <p>Dégradé Radial</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1-l4: On créé le dégradé allant d'un cercle (x1, y1, r1) sur le canvas vers un autre cercle (x2, y2, r2);
+                            l6-l8: On ajoute des couleurs au début (0), au milieu (0.5) et à la fin (1);
+                            l10: On défini le dégradé comme style de remplissage;
+                            l12: On rempli un carré
+                        "
+                    >
+                        <pre contenteditable><code>
+const gradient = context.createRadialGradient(
+    100, 100, 50, // x1, y1, r1
+    100, 250, 250 // x2, y2, r2
+)
+
+gradient.addColorStop(0, 'rgb(255, 80, 0)')
+gradient.addColorStop(0.5, 'rgb(255, 191, 0)')
+gradient.addColorStop(1, 'rgb(255, 246, 155)')
+
+context.fillStyle = gradient
+
+context.fillRect(0, 0, 400, 400)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Dégradé Radial</p>
+                    <canvas id="canvas-11" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">save() et restore()</h2>
+                </section>
+
+                <section>
+                    <p>Les fonctions save() et restore() permettent de sauvegarder l'état du style et de le restaurer</p>
+                    <p>Cela équivaut à un historique de pinceau</p>
+                    <p>Ces méthodes ne permettent pas de sauvegarder ou restaurer l'état du canvas !</p>
+                </section>
+
+                <section>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1-l6: On sauvegarde les propriétés du context et on trace un trait;
+                            l8-l13: On sauvegarde les propriétés du context et on trace un trait plus gros;
+                            l15-l20: On sauvegarde les propriétés du context et on trace un trait plus gros;
+                            l22-l26: On restore les propriétés du context et on trace un trait sans préciser l'épaisseur;
+                            l28-l32: On restore les propriétés du context et on trace un trait sans préciser l'épaisseur
+                        "
+                    >
+                        <pre contenteditable><code>
+context.save()
+context.beginPath()
+context.moveTo(50, 50)
+context.lineTo(50, 100)
+context.lineWidth = 1
+context.stroke()
+
+context.save()
+context.beginPath()
+context.moveTo(100, 50)
+context.lineTo(100, 100)
+context.lineWidth = 5
+context.stroke()
+
+context.save()
+context.beginPath()
+context.moveTo(150, 50)
+context.lineTo(150, 100)
+context.lineWidth = 10
+context.stroke()
+
+context.restore()
+context.beginPath()
+context.moveTo(200, 50)
+context.lineTo(200, 100)
+context.stroke()
+
+context.restore()
+context.beginPath()
+context.moveTo(250, 50)
+context.lineTo(250, 100)
+context.stroke()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <canvas id="canvas-12" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <h2>Courbes</h2>
+                </section>
+
+                <section>
+                    <p>Les méthodes <span class="highlight">bezierCurveTo()</span> et <span class="highlight">quadraticCurveTo()</span> permettent de dessiner des courbes de bézier en spécifiant chacun des points</p>
+                </section>
+
+                <section>
+                    <iframe src="https://player.vimeo.com/video/106757336?title=0&amp;byline=0&amp;portrait=0&amp;color=7d90ff" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </section>
+
+                <section>
+                    <p>Courbe de bézier</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1-l2: On place le point de départ;
+                            l4: On place le premier point de tension;
+                            l5: On place le deuxième point de tension;
+                            l6: On place le point d'arrivée;
+                            l8: On dessine et le canvas se chargera de créer la courbe de bézier
+                        "
+                    >
+                        <pre contenteditable><code>
+context.beginPath()
+context.moveTo(50, 50)
+context.bezierCurveTo(
+    300, 100,
+    100, 300,
+    300, 300
+)
+context.stroke()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Courbe de bézier</p>
+                    <canvas id="canvas-13" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <p>Courbe de quadratique (de bézier)</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1-l2: On place le point de départ;
+                            l4: On place le seul point de tension;
+                            l5: On place le point d'arrivée;
+                            l7: On dessine et le canvas se chargera de créer la courbe de bézier
+                        "
+                    >
+                        <pre contenteditable><code>
+context.beginPath()
+context.moveTo(50, 50)
+context.quadraticCurveTo(
+    300, 100,
+    300, 300
+)
+context.stroke()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Courbe de quadratique (de bézier)</p>
+                    <canvas id="canvas-14" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">globalAlpha</h2>
+                </section>
+
+                <section>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1: On réduit l'opacité;
+                            l3-l10: On dessine 3 carrés qui se superposent
+                        "
+                    >
+                        <pre contenteditable><code>
+context.globalAlpha = 0.3
+
+context.fillStyle = '#ff0000'
+context.fillRect(50, 50, 200, 200)
+
+context.fillStyle = '#00ff00'
+context.fillRect(100, 100, 200, 200)
+
+context.fillStyle = '#0000ff'
+context.fillRect(150, 150, 200, 200)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <canvas id="canvas-15" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">globalCompositeOperation</h2>
+                </section>
+
+                <section>
+                    <p>La propriété <span class="hl">globalCompositeOperation</span> permet de spécifier comment doivent se comporter les tracés en cours (source) par rapport aux tracés initiaux (destination)</p>
+                    <p>Équivalent au pathfinder d'illustrator</p>
+                </section>
+
+                <section>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1: On change la manière avec laquelle les couleurs se mélangent;
+                            l1: 'lighter' équivaut au comportement de la lumière (rouge + vert + bleu = blanc);
+                            l3-l10: On dessine 3 carrés qui se superposent
+                        "
+                    >
+                        <pre contenteditable><code>
+context.globalCompositeOperation = 'lighter'
+
+context.fillStyle = '#ff0000'
+context.fillRect(50, 50, 200, 200)
+
+context.fillStyle = '#00ff00'
+context.fillRect(100, 100, 200, 200)
+
+context.fillStyle = '#0000ff'
+context.fillRect(150, 150, 200, 200)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <canvas id="canvas-16" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1-l2: On dessine un carré;
+                            l4: On change la manière avec laquelle les couleurs se mélangent;
+                            l4: 'destination-out' veut dire que les dessine qui viennent vont retirer de la matière au dessin original (comme une gomme);
+                            l6-l9: On dessine un demi disque
+                        "
+                    >
+                        <pre contenteditable><code>
+context.fillStyle = 'red'
+context.fillRect(200, 200, 200, 200)
+
+context.globalCompositeOperation = 'destination-out' /* source-over | source-in | source-out | source-atop | destination-over | destination-in | destination-out | desination-atop | lighter | copy | xor */
+
+context.beginPath()
+context.fillStyle = 'blue'
+context.arc(200, 250, 100, 0, Math.PI, false)
+context.fill()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <canvas id="canvas-17" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <p>Dans les exemples suivants, on considère que le rond rouge est dessiné après le carré bleu</p>
+                    <p><img src="src/img/global-composite-operation.png" alt="" /></p>
+                </section>
+
+                <section>
+                    <h2 class="no-text-transform">ImageData</h2>
+                </section>
+
+                <section>
+                    <ul>
+                        <li><span class="hl">getImageData()</span> permet de récupérer les pixels d'une zone du canvas</li>
+                        <li>Ces pixels sont stockés dans la propriétés data de l'objet renvoyé</li>
+                        <li>Il s'agit d'un tableau</li>
+                        <li>Les valeurs <span class="hl">R, G, B et A</span> de chaque pixel sont les unes à la suite des autres</li>
+                        <li>Il faut donc parcourir ce tableau 4 par 4</li>
+                    </ul>
+                    <p><img width="300" src="src/img/jackie-chan-meme.jpg" alt="" /></p>
+                </section>
+
+                <section>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1: On créé une image (il est nécessaire d'utiliser un serveur pour que ça fonctionne (MAMP/WAMP));
+                            l3-l4,l18: On écoute le chargement de l'image;
+                            l20: On lance le chargement;
+                            l5: On dessine l'image;
+                            l6: On récupère l'imageData;
+                            l6: imageData va contenir tous les pixels dans un tableau linéaire composé de rouge, vers, bleu, alpha;
+                            l8-l9,l15: On boucle 4 par 4 dans le tableau (équivalent à boucler pixel par pixel);
+                            l10: On calcule la moyenne de gris (rouge + vert + bleu, le tout divisé par 3);
+                            l12-l14: On remplace les valeurs de rouge, vert et bleu par le gris
+                        "
+                    >
+                        <pre contenteditable><code>
+const image = document.createElement('img')
+
+image.addEventListener('load', () =>
+{
+    context.drawImage(image, 0, 0)
+    const imageData = context.getImageData(0, 0, image.width, image.height)
+
+    for(let i = 0; i < imageData.data.length; i += 4)
+    {
+        const gray = (imageData.data[i + 0] + imageData.data[i + 1] + imageData.data[i + 2]) / 3
+
+        imageData.data[i + 0] = gray
+        imageData.data[i + 1] = gray
+        imageData.data[i + 2] = gray
+    }
+
+    context.putImageData(imageData, 0, 0)
+})
+
+image.src = 'image.jpg'
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Ne fonctionne pas en local !</p>
+                    <canvas id="canvas-18" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <p><a target="_blank" href="https://simon.html5.org/dump/html5-canvas-cheat-sheet.html">Canvas cheat sheet (plus visuel)</a></p>
+                </section>
+
+                <section>
+                    <h2>Animer</h2>
+                </section>
+
+                <section>
+                    <p>Pour animer un canvas, on l'efface complètement et on le redessine à chaque frame (jusqu'à 60 fois par seconde)</p>
+                    <p>Il nous faut donc un fonction qui se déclenche à chaque frame : <span class="highlight fragment">requestAnimationFrame</span></p>
+                </section>
+
+                <section>
+                    <p>Request Animation Frame</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            *: ;
+                            l1-l2,l5: Fonction qui sera appelée à chaque frame;
+                            l6: On l'appelle une première fois;
+                            l3: On l'appelle à nouveau (la fonction sera exécuté à la prochaine frame)
+                        "
+                    >
+                        <pre contenteditable><code>
+const loop = () =>
+{
+    window.requestAnimationFrame(loop)
+    console.log('loop')
+}
+loop()
+                        </code></pre>
+                    </div>
+                    <p>La fonction loop sera appelée dès la prochaine frame</p>
+                    <p>Plus l'ordinateur est performant, plus la fréquence sera rapide avec une limite à 60 fps</p>
+                </section>
+
+                <section>
+                    <p>Exemple : Balle rebondissante</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            
+                        "
+                    >
+                        <pre contenteditable><code>
+// Coordonnées de base
+const ball = { x: 200, y: 200 }
+
+// Fonction déclenchée à chaque frame
+const loop = () =>
+{
+    window.requestAnimationFrame(loop)
+
+    // Mise à jour des coordonnées
+    ball.x += 4
+    ball.y = 200 - Math.abs(Math.sin(Date.now() * 0.005)) * 100
+
+    // Limite
+    if(ball.x > canvas.width + 50)
+    {
+        ball.x = -50
+    }
+
+    // Efface le canvas
+    context.globalAlpha = 0.2
+    context.fillStyle = '#fff'
+    context.fillRect(0, 0, $canvas.width, $canvas.height)
+
+    // Dessine la balle
+    context.beginPath()
+    context.arc(ball.x, ball.y, 50, 0, Math.PI * 2)
+    context.globalAlpha = 1
+    context.fillStyle = 'orange'
+    context.fill()
+}
+
+loop()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Exemple : Balle rebondissante</p>
+                    <canvas id="canvas-19" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <p>Exemple : Balle qui suit la souris</p>
+                    <div
+                        class="code-steps"
+                        data-type="js"
+                        data-trim
+                        data-steps="
+                            
+                        "
+                    >
+                        <pre contenteditable><code>
+// Coordonnées de la souris
+const mouse = { x: 0, y: 0 }
+
+window.addEventListener('mousemove', (event) =>
+{
+    mouse.x = event.clientX
+    mouse.y = event.clientY
+})
+
+// Coordonnées de la la balle
+const ball = { x: 0, y: 0 }
+
+// Fonction déclenchée à chaque frame
+const loop = () =>
+{
+    window.requestAnimationFrame(loop)
+
+    // Met à jour les coordonnées de la balle en appliquant un easing
+    ball.x += (mouse.x - ball.x) * 0.1
+    ball.y += (mouse.y - ball.y) * 0.1
+
+    // Efface le canvas
+    context.globalAlpha = 0.2
+    context.fillStyle = '#fff'
+    context.fillRect(0, 0, $canvas.width, $canvas.height)
+
+    // Dessine la balle
+    context.beginPath()
+    context.arc(ball.x, ball.y, 50, 0, Math.PI * 2)
+    context.globalAlpha = 1
+    context.fillStyle = 'orange'
+    context.fill()
+}
+
+loop()
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Exemple : Balle qui suit la souris</p>
+                    <canvas id="canvas-20" width="600" height="400"></canvas>
+                </section>
+
+                <section>
+                    <p>Aller plus loin</p>
+                    <ul>
+                        <li><a href="http://perfectionkills.com/exploring-canvas-drawing-techniques/" target="_blank">Drawing techniques</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Mes anciens élèves :</p>
+                    <ul>
+                        <li><a href="demos/balossini_arthur/index.html" target="_blank">Balossini Arthur</a></li>
+                        <li><a href="demos/cao_van_truong_alain/index.html" target="_blank">Cao Van Truong</a></li>
+                        <li><a href="demos/gentric_loana/index.html" target="_blank">Gentric Loana</a></li>
+                        <li><a href="demos/grosjean_amelie/index.html" target="_blank">Grosjean Amélie</a></li>
+                        <li><a href="demos/lacroix_thomas/index.html" target="_blank">Lacroix Thomas</a></li>
+                        <li><a href="demos/laurent_adrien/index.html" target="_blank">Laurent Adrien</a></li>
+                        <li><a href="demos/le_bras_leo/index.html" target="_blank">Le Bras Léo</a></li>
+                        <li><a href="demos/obadia_thomas/index.html" target="_blank">Obadia Thomas</a></li>
+                        <li><a href="demos/parot_clement/index.html" target="_blank">Parot Clément</a></li>
+                        <li><a href="demos/smagghe_damien/index.html" target="_blank">Smagghe Damien</a></li>
+                        <li><a href="demos/villain_baptiste/index.html" target="_blank">Villain Baptiste</a></li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+
+        <script src="../src/caniuse-embed.min.js"></script>
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script-module.js"></script>
+        <script src="./src/js/script.js"></script>
+    </body>
+</html>

@@ -33,6 +33,7 @@ const box = document.querySelector('.box')
 // tick()
 
 // /**
+//  * With RAF
 //  * Time based
 //  */
 // const startTime = Date.now()
@@ -48,20 +49,73 @@ const box = document.querySelector('.box')
 
 // tick()
 
+// /**
+//  * With RAF
+//  * Boucing
+//  */
+// const tick = () =>
+// {
+//     const time = Date.now()
+//     let y = time * 0.003
+//     y = Math.sin(y)
+//     y *= 200
+//     y = - Math.abs(y)
+
+//     box.style.transform = `translateY(${y}px)`
+
+//     window.requestAnimationFrame(tick)
+// }
+
+// tick()
+
+
 /**
- * Boucing
+ * With library
  */
-const tick = () =>
-{
-    const time = Date.now()
-    let y = time * 0.003
-    y = Math.sin(y)
-    y *= 200
-    y = - Math.abs(y)
+// gsap.to(
+//     '.box',
+//     {
+//         x: 400,
+//         duration: 2,
+//         delay: 0.5,
+//         ease: 'power4.inOut',
+//         onComplete: () =>
+//         {
+//             console.log('complete')
+//         }
+//     }
+// )
 
-    box.style.transform = `translateY(${y}px)`
+const timeline = gsap.timeline({
+    repeat: -1,
+    yoyo: true
+})
 
-    window.requestAnimationFrame(tick)
-}
+timeline.to(
+    box,
+    {
+        x: 400,
+        duration: 1,
+        // delay: 0.5,
+        ease: 'power4.inOut',
+        onComplete: () =>
+        {
+            console.log('complete')
+        }
+    }
+)
 
-tick()
+timeline.to(
+    box,
+    {
+        x: -500,
+        y: 200,
+        duration: 1,
+        // delay: 0.5,
+        ease: 'power4.inOut',
+        onComplete: () =>
+        {
+            console.log('complete')
+        }
+    }
+)

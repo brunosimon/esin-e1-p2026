@@ -13,4 +13,13 @@ body
     left: calc(50% - 200px / 2);
     background: orange;
     border-radius: 20px;
+    animation-name: mon-animation;
+    animation-duration: 3s;
+}
+
+@keyframes mon-animation
+{
+    0% { transform: translateX(0px); }
+    100% { transform: translateX(-100px); }
+    100% { transform: translateX(300px); }
 }
